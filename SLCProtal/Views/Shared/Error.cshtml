@@ -1,0 +1,18 @@
+﻿@model System.Web.Mvc.HandleErrorInfo
+@if (HttpContext.Current.User.Identity.IsAuthenticated)
+{
+    {
+        //Layout = "~/Views/Shared/_Layout_V2.cshtml";
+    }
+}
+
+<h2>
+    抱歉，处理您的请求时出错。
+</h2>
+<div>
+    @Model.Exception.Message
+</div>
+<div>
+    @Model.Exception.StackTrace
+</div>
+

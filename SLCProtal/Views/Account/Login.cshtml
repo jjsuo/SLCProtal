@@ -1,0 +1,52 @@
+﻿@model SLCProtal.Models.Account.LoginModel
+
+@{
+    ViewBag.Title = "登录页";
+    Layout =null;
+}
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+  
+</head>
+<body onload="if(window.self!=window.top){window.top=window.self;}">
+   
+    @using (Html.BeginForm("login", "account", FormMethod.Post))
+    {
+        <div>
+            <div>
+                <div>@Html.LabelFor(model => model.LoginName)：</div>
+                <div>@Html.TextBoxFor(model => model.LoginName)</div>
+                <div>@Html.LabelFor(model => model.PassWord)：</div>
+                <div>@Html.TextBoxFor(model => model.PassWord)</div>
+            
+                <div>
+                    <input type="submit" class="btn btn-green" value="登录" />
+                </div>
+                @Html.HiddenFor(x => x.ReturnUrl)
+               
+            </div>
+        </div>
+    }
+
+  
+</body>
+</html>
+
+@if (ViewData["error"] != null)
+{
+    <script type="text/javascript">
+        alert("@ViewData["error"]");
+    </script>
+}
+@*else if (ViewData["redirect"] != null)
+{
+    <script type="text/javascript">
+        window.location.href = "@ViewData["redirect"]";
+    </script>
+}*@
