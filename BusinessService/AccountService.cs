@@ -56,6 +56,22 @@ namespace BusinessService
         }
 
 
+        public Account CheckUser(string phone)
+        {
+            ConvertClass<Account> convertClass = new ConvertClass<Account>();
+            Account user = null;
+
+
+            DataSet st = SqlHelper.ExecuteDataset(SqlConnect.CRM_ADDON_ConnectString, CommandType.StoredProcedure,
+                "usp_protal_CheckUserByPhone", new SqlParameter("@phone", phone));
+            if (st.Tables[0].Rows.Count > 0)
+            {
+                user = convertClass.ToT(st.Tables[0].Rows[0]);
+            }
+
+            return user;
+        }
+
         public SickPeople GetSickPeople(string userId)
         {
             ConvertClass<SickPeople> convertClass = new ConvertClass<SickPeople>();
@@ -74,13 +90,24 @@ namespace BusinessService
 
         public string ChangePassword(string userId, string phone)
         {
+            if (string.IsNullOrEmpty(userId))
+            {
+                Account account = CheckUser(phone);
+
+                if (account == null)
+                    return "E";
+                else
+                {
+                    userId = account.UserId;
+                }
+            }
             Entity letter = new Entity("letter");
             letter["slc_tonumber"] = phone;
             letter["to"] = new EntityReference("contact", new Guid(userId));
             letter["slc_messagetype"] = new OptionSetValue(4);
             letter["subject"] = "修改密码通知短信";
-            Random rad = new Random();//实例化随机数产生器rad；
-            int value = rad.Next(1000, 10000);//用rad生成大于等于1000，小于等于9999的随机数；
+            Random rad = new Random(); //实例化随机数产生器rad；
+            int value = rad.Next(1000, 10000); //用rad生成大于等于1000，小于等于9999的随机数；
             letter["slc_content"] = value.ToString(CultureInfo.InvariantCulture);
             CrmService.OrgService.Create(letter);
             return value.ToString(CultureInfo.InvariantCulture);
