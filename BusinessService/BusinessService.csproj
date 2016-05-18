@@ -44,7 +44,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AccountService.cs" />
+    <Compile Include="BizCaseService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ServiceItemService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BusinessEntities\BusinessEntities.csproj">

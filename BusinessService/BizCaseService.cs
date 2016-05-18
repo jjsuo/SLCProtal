@@ -60,6 +60,11 @@ namespace BusinessService
             return bizCaseStatus;
         }
 
+        /// <summary>
+        /// 获取专家列表
+        /// </summary>
+        /// <param name="bizCaseId"></param>
+        /// <returns></returns>
         public List<Specialist> GetBizCaseSpecialist(string bizCaseId)
         {
             ConvertClass<Specialist> convertClass = new ConvertClass<Specialist>();

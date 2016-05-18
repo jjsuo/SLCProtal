@@ -1,1 +1,7 @@
 /packages
+/BusinessEntity/bin
+/BusinessEntity/obj
+/BusinessService/bin
+/BusinessService/obj
+/SLCProtal/bin
+/SLCProtal/obj

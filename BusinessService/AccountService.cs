@@ -14,6 +14,12 @@ namespace BusinessService
 {
     public class AccountService
     {
+        /// <summary>
+        /// 根据账户名和密码来检测用户
+        /// </summary>
+        /// <param name="userName"></param>
+        /// <param name="passWord"></param>
+        /// <returns></returns>
         public Account CheckUser(string userName, string passWord)
         {
             ConvertClass<Account> convertClass = new ConvertClass<Account>();
@@ -38,7 +44,11 @@ namespace BusinessService
             //return userName == "admin" && passWord == "123456";
         }
 
-
+        /// <summary>
+        /// 根据userID获取用户信息
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <returns></returns>
         public Account GetUser(string userId)
         {
             ConvertClass<Account> convertClass = new ConvertClass<Account>();
@@ -55,7 +65,11 @@ namespace BusinessService
             return user;
         }
 
-
+        /// <summary>
+        /// 根据手机号来检测用户
+        /// </summary>
+        /// <param name="phone"></param>
+        /// <returns></returns>
         public Account CheckUser(string phone)
         {
             ConvertClass<Account> convertClass = new ConvertClass<Account>();
@@ -72,6 +86,11 @@ namespace BusinessService
             return user;
         }
 
+        /// <summary>
+        /// 获取患者信息
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <returns></returns>
         public SickPeople GetSickPeople(string userId)
         {
             ConvertClass<SickPeople> convertClass = new ConvertClass<SickPeople>();
@@ -88,6 +107,12 @@ namespace BusinessService
             return sickPeople;
         }
 
+        /// <summary>
+        /// 修改密码
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <param name="phone"></param>
+        /// <returns></returns>
         public string ChangePassword(string userId, string phone)
         {
             if (string.IsNullOrEmpty(userId))

@@ -20,6 +20,11 @@ namespace BusinessService
 {
     public  class ServiceItemService
     {
+        /// <summary>
+        /// 获取服务项根据服务id
+        /// </summary>
+        /// <param name="bizCaseId"></param>
+        /// <returns></returns>
         public List<ServiceItem> GetServiceItemByBizCase(string bizCaseId)
         {
             ConvertClass<ServiceItem> convertClass = new ConvertClass<ServiceItem>();
