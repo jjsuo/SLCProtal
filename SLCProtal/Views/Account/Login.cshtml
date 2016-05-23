@@ -127,7 +127,7 @@
 @if (ViewData["error"] != null)
 {
     <script type="text/javascript">
-        alert("@ViewData["error"]");
+        logger.error("@ViewData["error"]");
     </script>
 }
 @*else if (ViewData["redirect"] != null)
