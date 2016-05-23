@@ -11,12 +11,12 @@ namespace SLCProtal.Models.Account
     {
         [DisplayName("用户名")]
         [Required]
-        public string LoginName { get; set; }
+        public string username { get; set; }
 
         [DisplayName("密码")]
         [Required]
         public string PassWord { get; set; }
-
+        public string checkbox { get; set; }
         public string ReturnUrl { get; set; }
     }
 }

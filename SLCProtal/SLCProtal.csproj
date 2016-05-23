@@ -611,7 +611,9 @@
     <Content Include="resources\scripts\messagecenter.js" />
     <Content Include="resources\scripts\player\axplayer.js" />
     <Content Include="resources\scripts\player\splitter.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -643,6 +645,10 @@
     <ProjectReference Include="..\BusinessService\BusinessService.csproj">
       <Project>{DAD53963-722D-4641-B38B-486143B2A90E}</Project>
       <Name>BusinessService</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Common\Common.csproj">
+      <Project>{753dac93-debf-43d8-89d9-c682cd32ec14}</Project>
+      <Name>Common</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
