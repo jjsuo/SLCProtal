@@ -1,3 +1,4 @@
+*.dll
 /node_modules
 /dist
 /.tmp
@@ -5,5 +6,9 @@
 /bower_components
 /BusinessEntities/obj
 /BusinessEntities/bin
+/BusinessService/obj
+/BusinessService/bin
+/Common/obj
+/Common/bin
 /SLCProtal/bin
 
