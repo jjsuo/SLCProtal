@@ -1,0 +1,52 @@
+﻿@charset "utf-8";
+
+ 
+/*顶部导航*/
+.hNav2{height:80px;background:#fff;padding-left:115px;padding-top:26px;}
+.hNav2In{width:1200px;margin:0 auto;}
+.hSearch{width:587px;height:35px;margin-top:10px;float:right;}
+.hSearchInput,.cSearchInput,.sSearchInput{width:490px;height:33px;line-height:33px;padding:0 10px;float:left;border:1px solid #ccc;border-right:none;font-size:14px;color:#a9a9a9;background:none;}
+.hSearchBtn,.cSearchBtn,.sSearchBtn{width:70px;height:35px;float:left;border:none;font-size:16px;color:#fff;background:#bb9b58;cursor:pointer;}
+
+
+/*底部*/
+.g-ft{width:100%;text-align:center;padding-bottom:10px;margin:24px auto 0;overflow:hidden;}
+.ft-nav{width:1000px;margin:0 -50px 15px 0;}
+.ftlinks{width:192px;_width:190px;float:left;}
+.ftlinks_tit{height:26px;line-height:26px;font-size:16px;color:#231f20;}
+.ftlinks_list{width:195px;margin-top:10px;}
+.ftlinks_list a{display:block;line-height:23px;}
+.ft-cpy{line-height:28px;text-align:center;font-size:12px;color:#bb9b58;}
+/*[p=登录界面]==========*/
+.htop{height:100px;line-height:40px;background:#fff;}
+.hlogo{float:left;}
+.login_banner{color:#019fbe;font-size:14px;font-weight:bold;padding-top:16px;margin-bottom:5px;}
+.login_bd{background:#980004;}
+.login,.register{height:428px;background:#0863af;}
+.login{background:url(../images/login_bg.png) no-repeat center center;}
+.loginCont{width:1200px;margin:0 auto;position:relative;}
+.loginBox{width:300px;height:340px;border-radius:5px;position:absolute;right:120px;top:53px;background:#c2daf5;}
+.login_bner{width:590px;height:269px;display:block;position:absolute;right:480px;top:135px;}
+.login_bner img{width:590px;height:269px;display:block;}
+.loginIn{width:300px;height:339px;}
+.login_hd{height:54px;background-color:#4f97e8;}
+.login_title{font-size:14px;color:#fff;font-weight:bold;padding:20px;float:left}
+.login_reg{padding:20px;text-align:right;}
+.login_reg a{font-size:12px;color:#ffcc00;font-weight:bold;text-decoration:underline;}
+.login_name{height:60px;}
+.login_pwd{height:50px;}
+.login_name{margin-top:5px;}
+.loginBox em.error{line-height:24px;font-size:12px;color:#f00;margin-left: 20px;}
+.login_iput{width:230px;height:38px;line-height:32px;padding:0 15px;margin:0 20px; border:1px solid #e5e5e5;font-size:15px;}
+.login_iput_title {font-size:12px;border: none;margin:20px 20px 10px;color:#4375aa;font-weight:bold;}
+.login_logName{height:6px;line-height:16px;position:relative;font-size:12px;padding:15px 20px;font-weight:bold;}
+.login_btnRow{height:50px;margin-top:10px;text-align:center;}
+.login_btn1{width:166px;height:40px;line-height:40px;border:none;text-align:center;font-size:16px;color:#fff;background-color:#4f97e7;cursor:pointer;display:inline-block;text-shadow:1px 1px 2px rgba(0,0,0,0.3);}
+.login_btn1:hover{background-color:#ffa200;}
+.login_btn1-1{width:100%;}
+.login_code{position:relative;}
+.login_code em.error,.login_logName em.error{position:absolute;left:0;top:50px;}
+.login_logName em.error{top:22px;}
+.login_rempwd{float:right;font-size:12px;color:#4375aa;font-weight:bold;}
+.login_rempwd:hover{text-decoration:underline;}
+ 

@@ -1,0 +1,30 @@
+{
+  "name": "SLCProtal",
+  "homepage": "https://github.com/jjsuo/SLCProtal",
+  "authors": [
+    "xxf456123xxf <549748120@qq.com>"
+  ],
+  "description": "",
+  "main": "",
+  "moduleType": [],
+  "keywords": [
+    "protal"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "underscore": "^1.8.3",
+    "jquery": "^1.11.1",
+    "jquery-validation": "jquery.validate#^1.13.0",
+    "moment": "^2.13.0"
+  },
+  "devDependencies": {
+    "toastr": "https://github.com/CodeSeven/toastr.git#^2.1.2"
+  }
+}

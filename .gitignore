@@ -3,6 +3,7 @@
 /dist
 /.tmp
 /packages
+/SLCProtal/bower_components
 /bower_components
 /BusinessEntities/obj
 /BusinessEntities/bin
