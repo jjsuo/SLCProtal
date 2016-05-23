@@ -1,7 +1,8 @@
+/node_modules
+/dist
+/.tmp
 /packages
-/BusinessEntity/bin
-/BusinessEntity/obj
-/BusinessService/bin
-/BusinessService/obj
+/bower_components
+BusinessEntities/obj
 /SLCProtal/bin
-/SLCProtal/obj
+BusinessEntities/obj/Debug/BusinessEntities.csprojResolveAssemblyReference.cache
