@@ -116,8 +116,13 @@
                 }
             });
             $('#loginBtn').click(function () {
-                if ($("#loginForm").valid()) {
+                var fromData = common.GetRequest($('#loginForm').serialize());
 
+                if ($("#loginForm").valid()) {
+                    var url = 'login/account'
+                    request.form(url, fromData).then(function (res) {
+
+                    });
                 }
             });
         });

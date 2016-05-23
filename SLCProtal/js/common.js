@@ -23,8 +23,11 @@
         }
         return win;
     },
-    GetRequest: function () {
+    GetRequest: function (param) {
         var url = location.search; //获取url中"?"符后的字串
+        if (param) {
+            url = "?" + param;
+        }
         var theRequest = new Object();
         if (url.indexOf('?') != -1) {
             var str = url.substr(1);
@@ -70,6 +73,20 @@ var request = {
             url: url,
             beforeSend: function (XMLHttpRequest) {
                 XMLHttpRequest.setRequestHeader("Accept", "application/json");
+            },
+            data: data
+        });
+    },
+    form: function (url, data) {
+
+        //data = JSON.stringify(data || []);
+        return $.ajax({
+            type: "POST",
+            contentType: "application/x-www-form-urlencoded",
+            datatype: "json",
+            url: url,
+            beforeSend: function (XMLHttpRequest) {
+                XMLHttpRequest.setRequestHeader("Accept", "application/x-www-form-urlencoded");
             },
             data: data
         });
