@@ -3,6 +3,7 @@
 /.tmp
 /packages
 /bower_components
-BusinessEntities/obj
+/BusinessEntities/obj
+/BusinessEntities/bin
 /SLCProtal/bin
-BusinessEntities/obj/Debug/BusinessEntities.csprojResolveAssemblyReference.cache
+
