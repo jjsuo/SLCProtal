@@ -25,7 +25,7 @@ namespace BusinessService
             return hotelOrder;
         }
 
-        public List<PlanBook> GetListHotelOrderByCaseId(string bizCaseId)
+        public List<PlanBook> GetListPlanOrderByCaseId(string bizCaseId)
         {
             ConvertClass<PlanBook> convertClass = new ConvertClass<PlanBook>();
             List<PlanBook> planBook = null;

@@ -119,6 +119,7 @@
     </Compile>
     <Compile Include="Models\Account\AccountModel.cs" />
     <Compile Include="Models\Account\LoginModel.cs" />
+    <Compile Include="Models\Home\Home.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
