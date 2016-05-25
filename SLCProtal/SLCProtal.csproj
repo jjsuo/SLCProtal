@@ -336,115 +336,30 @@
     <Content Include="bower_components\jquery\src\wrap.js" />
     <Content Include="bower_components\underscore\underscore-min.js" />
     <Content Include="bower_components\underscore\underscore.js" />
-    <Content Include="data\document.js" />
-    <Content Include="data\styles.css" />
-    <Content Include="files\index\data.js" />
-    <Content Include="files\index\styles.css" />
-    <Content Include="files\付款计划\data.js" />
-    <Content Include="files\付款计划\styles.css" />
-    <Content Include="files\修改密码\data.js" />
-    <Content Include="files\修改密码\styles.css" />
-    <Content Include="files\客户信息\data.js" />
-    <Content Include="files\客户信息\styles.css" />
-    <Content Include="files\接送服务\data.js" />
-    <Content Include="files\接送服务\styles.css" />
-    <Content Include="files\服务\data.js" />
-    <Content Include="files\服务\styles.css" />
-    <Content Include="files\服务评价\data.js" />
-    <Content Include="files\服务评价\styles.css" />
-    <Content Include="files\服务评价_1\data.js" />
-    <Content Include="files\服务评价_1\styles.css" />
-    <Content Include="files\服务评价_2\data.js" />
-    <Content Include="files\服务评价_2\styles.css" />
-    <Content Include="files\服务评价_3\data.js" />
-    <Content Include="files\服务评价_3\styles.css" />
-    <Content Include="files\服务评价_4\data.js" />
-    <Content Include="files\服务评价_4\styles.css" />
-    <Content Include="files\机票酒店\data.js" />
-    <Content Include="files\机票酒店\styles.css" />
-    <Content Include="files\海外服务\data.js" />
-    <Content Include="files\海外服务\styles.css" />
-    <Content Include="files\登录首页\data.js" />
-    <Content Include="files\登录首页\styles.css" />
-    <Content Include="files\签证\data.js" />
-    <Content Include="files\签证\styles.css" />
-    <Content Include="files\预约\data.js" />
-    <Content Include="files\预约\styles.css" />
+    <Content Include="css\base.css" />
+    <Content Include="css\style.css" />
     <Content Include="Global.asax" />
-    <Content Include="images\index\u2.jpg" />
-    <Content Include="images\index\u4.jpg" />
-    <Content Include="images\index\u6.png" />
-    <Content Include="images\付款计划\u519.png" />
-    <Content Include="images\付款计划\u525.png" />
-    <Content Include="images\付款计划\u527.png" />
-    <Content Include="images\付款计划\u533.png" />
-    <Content Include="images\付款计划\u535.png" />
-    <Content Include="images\付款计划\u541.png" />
-    <Content Include="images\付款计划\u559.png" />
-    <Content Include="images\付款计划\u565.png" />
-    <Content Include="images\客户信息\u255.png" />
-    <Content Include="images\服务\u297.png" />
-    <Content Include="images\服务\u301.png" />
-    <Content Include="images\服务\u303.png" />
-    <Content Include="images\服务\u307.png" />
-    <Content Include="images\服务\u309.png" />
-    <Content Include="images\服务\u313.png" />
-    <Content Include="images\服务\u327.png" />
-    <Content Include="images\服务\u331.png" />
-    <Content Include="images\服务\u378.png" />
-    <Content Include="images\服务\u380.png" />
-    <Content Include="images\服务\u382.png" />
-    <Content Include="images\服务评价\u630.png" />
-    <Content Include="images\服务评价\u642.png" />
-    <Content Include="images\服务评价\u650.png" />
-    <Content Include="images\服务评价\u654.png" />
-    <Content Include="images\服务评价\u670.png" />
-    <Content Include="images\海外服务\u402.png" />
-    <Content Include="images\海外服务\u408.png" />
-    <Content Include="images\海外服务\u410.png" />
-    <Content Include="images\海外服务\u416.png" />
-    <Content Include="images\海外服务\u418.png" />
-    <Content Include="images\海外服务\u424.png" />
-    <Content Include="images\海外服务\u442.png" />
-    <Content Include="images\海外服务\u448.png" />
-    <Content Include="images\登录首页\u100.png" />
-    <Content Include="images\登录首页\u104.png" />
-    <Content Include="images\登录首页\u106.png" />
-    <Content Include="images\登录首页\u118_menu.png" />
-    <Content Include="images\登录首页\u120.png" />
-    <Content Include="images\登录首页\u128.jpg" />
-    <Content Include="images\登录首页\u132.png" />
-    <Content Include="images\登录首页\u134.png" />
-    <Content Include="images\登录首页\u140.png" />
-    <Content Include="images\登录首页\u143.jpg" />
-    <Content Include="images\登录首页\u145.jpg" />
-    <Content Include="images\登录首页\u202.png" />
-    <Content Include="images\登录首页\u39.png" />
-    <Content Include="images\登录首页\u57.png" />
-    <Content Include="images\登录首页\u59.png" />
-    <Content Include="images\登录首页\u61.png" />
-    <Content Include="images\登录首页\u70.png" />
-    <Content Include="images\登录首页\u74.png" />
-    <Content Include="images\登录首页\u76.png" />
-    <Content Include="images\登录首页\u80.png" />
-    <Content Include="images\登录首页\u82.png" />
-    <Content Include="images\登录首页\u86.png" />
-    <Content Include="images\登录首页\个人信息菜单_u124.png" />
-    <Content Include="images\登录首页\导航1_u35.png" />
-    <Content Include="images\登录首页\导航2_u15.png" />
-    <Content Include="images\登录首页\导航3_u31.png" />
-    <Content Include="images\登录首页\导航4_u33.png" />
-    <Content Include="images\登录首页\导航6_u29.png" />
-    <Content Include="images\登录首页\我的专家_u65.jpg" />
-    <Content Include="images\登录首页\服务内容_u63.jpg" />
-    <Content Include="images\登录首页\页底_u138.png" />
-    <Content Include="images\登录首页\首页_u11.jpg" />
-    <Content Include="images\预约\u753.png" />
-    <Content Include="images\预约\u761.png" />
-    <Content Include="images\预约\u765.png" />
-    <Content Include="images\预约\u767.png" />
-    <Content Include="images\预约\u769.png" />
-    <Content Include="images\预约\u771.png" />
+    <Content Include="images\icon\address.png" />
+    <Content Include="images\icon\calendar.png" />
+    <Content Include="images\icon\hotels.png" />
+    <Content Include="images\icon\left_complete.png" />
+    <Content Include="images\icon\left_notstart.png" />
+    <Content Include="images\icon\left_start.png" />
+    <Content Include="images\icon\middle_complete.png" />
+    <Content Include="images\icon\middle_notstart.png" />
+    <Content Include="images\icon\middle_start.png" />
+    <Content Include="images\icon\right_complete.png" />
+    <Content Include="images\icon\right_notstart.png" />
+    <Content Include="images\icon\right_start.png" />
+    <Content Include="images\jpjd_bg.png" />
+    <Content Include="images\line.png" />
+    <Content Include="images\login_baidu.png" />
+    <Content Include="images\login_bg.png" />
+    <Content Include="images\logo.png" />
+    <Content Include="images\logo_c.png" />
+    <Content Include="images\row_line.png" />
+    <Content Include="images\tj.png" />
+    <Content Include="images\user.png" />
     <Content Include="js\common.js" />
     <Content Include="plugins\debug\debug.js" />
     <Content Include="plugins\debug\styles\debug.css" />
@@ -624,15 +539,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="css\" />
-    <Folder Include="images\修改密码\" />
-    <Folder Include="images\接送服务\" />
-    <Folder Include="images\服务评价_1\" />
-    <Folder Include="images\服务评价_2\" />
-    <Folder Include="images\服务评价_3\" />
-    <Folder Include="images\服务评价_4\" />
-    <Folder Include="images\机票酒店\" />
-    <Folder Include="images\签证\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
@@ -687,6 +593,15 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="bower.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="template\Hotels.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="template\Flights.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\Main.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -1,0 +1,117 @@
+﻿@{
+    Layout = null;
+}
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link href="/css/base.css" type="text/css" rel="stylesheet">
+    <link href="/css/style.css" type="text/css" rel="stylesheet">
+    <link href="~/bower_components/toastr/build/toastr.min.css" rel="stylesheet" />
+    @* <script type="text/javascript" src="js/jquery.min.js"></script>*@
+
+    <script src="~/bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="~/bower_components/toastr/build/toastr.min.js"></script>
+    <script src="~/bower_components/moment/min/moment.min.js"></script>
+    <script src="~/bower_components/moment/locale/zh-cn.js"></script>
+    <script src="~/bower_components/underscore/underscore-min.js"></script>
+    <script src="http://cdn.bootcss.com/history.js/1.8/bundled/html5/jquery.history.js"></script>
+    <!--表单验证-->
+    <script src="~/bower_components/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/bower_components/jquery-validation/src/localization/messages_zh.js"></script>
+    <script src="~/js/common.js"></script>
+    <style type="text/css"></style>
+
+    <!--表单验证-->
+    @* <script src="org/jquery-validation-1.14.0/dist/jquery.validate.min.js"></script>
+    <script src="org/jquery-validation-1.14.0/dist/localization/messages_zh.js"></script>*@
+
+    <!--[if IE 6]>
+    <script src="js/ie6PNG.js" type="text/javascript"></script>
+    <script type="text/javascript">DD_belatedPNG.fix('*');</script>
+    <![endif]-->
+
+    <title>酒店预订</title>
+</head>
+<body>
+    <!--***header***-->
+    <div class="hNav2">
+        <div class="userMenu">
+            <img src="/images/user.png">
+            登录
+        </div>
+        <a class="wecTips">
+            <img src="/images/logo_c.png">
+        </a>
+    </div>
+    <!--***header***-->
+    <!--Progress Bar-->
+    <div class="progressbar_bg">
+        <div style="position: relative; margin-left: 200px; width: 1000px;">
+            <div class="left_complete">起草</div>
+            <div class="middle_start">审批中</div>
+            <div class="middle_notstart">合同签订</div>
+            <div class="middle_notstart">执行中</div>
+            <div class="middle_notstart">预约完成</div>
+            <div class="right_notstart">出国准备</div>
+        </div>
+    </div>
+    <!--Progress Bar-->
+    <!--content-->
+
+    <div class="usrBd">
+        <div class="usrfligh clearfix">
+            <div class="usrSid">
+                <div class="usrSidMenu">
+                    <ul class="usrSubMenu" style="display: block;">
+                        <li><a href="javascript:void(0)" index="0">首页</a></li>
+                        <li><a href="javascript:void(0)" index="1">查看服务</a></li>
+                        <li><a href="javascript:void(0)" index="2">海外服务</a></li>
+                        <li><a href="javascript:void(0)" index="3">查看翻译</a></li>
+                        <li><a href="javascript:void(0)" index="4">查看签证</a></li>
+                        <li><a href="javascript:void(0)" index="5">查看预约</a></li>
+                        <li><a href="javascript:void(0)" index="6">机票预订</a></li>
+                        <li><a href="javascript:void(0)" index="7">接机服务</a></li>
+                        <li><a href="javascript:void(0)" index="8">送机服务</a></li>
+                        <li class="act" index="9"><a href="javascript:void(0)">酒店服务</a></li>
+                        <li><a href="javascript:void(0)" index="10">产品研发</a></li>
+                        <li><a href="javascript:void(0)" index="11">医生留言</a></li>
+                        <li><a href="javascript:void(0)" index="12">客户投诉</a></li>
+                        <li><a href="javascript:void(0)" index="13">联系方式</a></li>
+                      
+
+                    </ul>
+                </div>
+            </div>
+            <div class="usrMn">
+            </div>
+        </div>
+    </div>
+    <!--content-->
+    <!--***footer***-->
+    <div class="g-ft" style="background-color: #efefef; margin: 0px; color: #a8a8a8; padding-top: 15px; height: 15px;">
+        <div class="clearfix">
+            Copyright © 2013 All Rights Reserved  版权所有：北京盛诺一家医院管理咨询有限公司&nbsp;&nbsp;&nbsp;&nbsp;京ICP备11025849-2京网公安备11010102001876号
+        </div>
+    </div>
+    <!--***footer***-->
+
+    <script>
+        var indexs = [1, 2, 3, 4];
+        $(function () {
+            History.Adapter.bind(window, 'statechange', function () { 
+                var State = History.getState(); 
+
+               
+            });
+
+            $('.usrBd .usrSubMenu[index]').click(function () {
+
+
+            })
+        });
+    </script>
+
+</body>
+</html>

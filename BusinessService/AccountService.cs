@@ -23,8 +23,9 @@ namespace BusinessService
         public Account CheckUser(string userName, string passWord)
         {
             ConvertClass<Account> convertClass = new ConvertClass<Account>();
-            Account user = null;
-
+            Account user = new Account();
+            user.UserId = Guid.NewGuid().ToString();
+            return user;
             SqlParameter[] sps = new SqlParameter[2];
             sps[0] = new SqlParameter("@loginname", userName);
             sps[1] = new SqlParameter("@password", passWord);
@@ -34,6 +35,7 @@ namespace BusinessService
             if (st.Tables[0].Rows.Count > 0)
             {
                 user = convertClass.ToT(st.Tables[0].Rows[0]);
+
             }
 
             return user;

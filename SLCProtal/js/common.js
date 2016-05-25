@@ -55,11 +55,9 @@ var request = {
         }
         return $.ajax({
             type: "get",
-            contentType: "application/json; charset=utf-8",
-            datatype: "json",
             url: url,
             beforeSend: function (XMLHttpRequest) {
-                XMLHttpRequest.setRequestHeader("Accept", "application/json");
+
             }
         });
     },

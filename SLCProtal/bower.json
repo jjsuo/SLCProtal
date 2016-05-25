@@ -22,7 +22,8 @@
     "underscore": "^1.8.3",
     "jquery": "^1.11.1",
     "jquery-validation": "jquery.validate#^1.13.0",
-    "moment": "^2.13.0"
+    "moment": "^2.13.0",
+    "jquery-history-plugin": "https://github.com/tkyk/jquery-history-plugin.git"
   },
   "devDependencies": {
     "toastr": "https://github.com/CodeSeven/toastr.git#^2.1.2"

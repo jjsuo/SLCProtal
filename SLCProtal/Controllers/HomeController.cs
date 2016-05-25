@@ -8,5 +8,9 @@ namespace SLCProtal.Controllers
         {
             return View();
         }
+        public ActionResult Main()
+        {
+            return View();
+        }
     }
 }
