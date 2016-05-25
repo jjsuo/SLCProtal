@@ -23,6 +23,8 @@ namespace SLCProtal.Common
             }
         }
 
+       
+
         public static void SetAccountInfo(Account account)
         {
             HttpContext.Current.Session["AccountInfo"] = account;
@@ -30,9 +32,34 @@ namespace SLCProtal.Common
 
         internal static void Clear()
         {
-
+            HttpContext.Current.Session["BizCaseInfo"] = null;
             HttpContext.Current.Session["AccountInfo"] = null;
         }
 
+
+
+        public static BizCase BizCaseInfo
+        {
+            get
+            {
+                if (HttpContext.Current.Session["BizCaseInfo"] == null)
+                {
+                    return null;
+                }
+                else
+                {
+                    return HttpContext.Current.Session["BizCaseInfo"] as BizCase;
+                }
+            }
+        }
+
+
+
+        public static void SetBizCaseInfo(BizCase bizCase)
+        {
+            HttpContext.Current.Session["BizCaseInfo"] = bizCase;
+        }
+
+       
     }
 }

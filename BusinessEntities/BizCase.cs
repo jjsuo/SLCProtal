@@ -17,5 +17,7 @@ namespace BusinessEntities
     public class BizCase
     {
         public string BizCaseId { get; set; }
+
+        public string Status { get; set; }
     }
 }

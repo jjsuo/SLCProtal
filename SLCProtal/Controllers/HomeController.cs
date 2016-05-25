@@ -1,4 +1,9 @@
-﻿using System.Web.Mvc;
+﻿using BusinessEntities;
+using BusinessService;
+using SLCProtal.Common;
+using SLCProtal.Models.Home;
+using System;
+using System.Web.Mvc;
 
 namespace SLCProtal.Controllers
 {
@@ -6,11 +11,44 @@ namespace SLCProtal.Controllers
     {
         public ActionResult Index()
         {
-            return View();
+            HomeModel home = new HomeModel();
+            string message = string.Empty;
+
+            home = GetHomeModel(out message);
+
+            if (!string.IsNullOrEmpty(message))
+                ViewData["error"] = message;
+            return View(home);
         }
         public ActionResult Main()
         {
-            return View();
+            HomeModel home = new HomeModel();
+            string message=string.Empty;
+
+            home = GetHomeModel(out message);
+            
+            if(!string.IsNullOrEmpty(message))
+                ViewData["error"] = message;
+            return View(home);
+        }
+
+        private HomeModel GetHomeModel(out string message)
+        {
+            message = "";
+            HomeModel home = new HomeModel();
+            BizCaseService bizCaseService = new BizCaseService();
+            BizCase bizCase= bizCaseService.GetRecentBizCase(SessionManage.AccountInfo.UserId);
+            if (bizCase == null)
+                message = "没有最近一次服务!";
+
+            SessionManage.SetBizCaseInfo(bizCase);
+            SiteMapService smService = new SiteMapService();
+            home.SiteMaps = smService.GetSitMap(SessionManage.BizCaseInfo.BizCaseId);
+            home.Status = bizCase.Status;
+            return home;
+
+
+
         }
     }
 }

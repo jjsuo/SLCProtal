@@ -20,7 +20,7 @@ namespace BusinessService
 {
     public class OrderService
     {
-        public static List<Order> GetListOrderByCaseId(string bizCaseId)
+        public  List<Order> GetListOrderByCaseId(string bizCaseId)
         {
             ConvertClass<Order> convertClass = new ConvertClass<Order>();
             List<Order> orders = null;
@@ -32,5 +32,8 @@ namespace BusinessService
 
             return orders;
         }
+
+
+       
     }
 }
