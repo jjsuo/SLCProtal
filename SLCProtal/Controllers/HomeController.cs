@@ -11,14 +11,22 @@ namespace SLCProtal.Controllers
     {
         public ActionResult Index()
         {
+            BizCaseService bizCaseService = new BizCaseService();
+            ServiceItemService serviceItemService = new ServiceItemService();
             HomeModel home = new HomeModel();
             string message = string.Empty;
 
             home = GetHomeModel(out message);
 
+            MainModel main = new MainModel();
+            main.SiteMaps = home.SiteMaps;
+            main.Status = home.Status;
+            main.ServiceItems = serviceItemService.GetServiceItemByBizCase(SessionManage.BizCaseInfo.BizCaseId);
+            main.Specialist = bizCaseService.GetBizCaseSpecialist(SessionManage.BizCaseInfo.BizCaseId);
+
             if (!string.IsNullOrEmpty(message))
                 ViewData["error"] = message;
-            return View(home);
+            return View(main);
         }
         public ActionResult Main()
         {

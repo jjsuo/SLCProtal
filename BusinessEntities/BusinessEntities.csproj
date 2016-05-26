@@ -42,7 +42,7 @@
     <Compile Include="Account.cs" />
     <Compile Include="BizCase.cs" />
     <Compile Include="BizCaseStatus.cs" />
-    <Compile Include="HotelOrder.cs" />
+    <Compile Include="HotelBook.cs" />
     <Compile Include="Order.cs" />
     <Compile Include="PlanBook.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
