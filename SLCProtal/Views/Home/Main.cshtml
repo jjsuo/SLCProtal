@@ -10,19 +10,21 @@
     <link href="/css/style.css" type="text/css" rel="stylesheet">
     <link href="~/bower_components/toastr/build/toastr.min.css" rel="stylesheet" />
     @* <script type="text/javascript" src="js/jquery.min.js"></script>*@
-
+    @* <script type="text/javascript" src='http://cn.vuejs.org/js/vue.js'></script>*@
     <script src="~/bower_components/jquery/dist/jquery.min.js"></script>
     <script src="~/bower_components/toastr/build/toastr.min.js"></script>
     <script src="~/bower_components/moment/min/moment.min.js"></script>
     <script src="~/bower_components/moment/locale/zh-cn.js"></script>
     <script src="~/bower_components/underscore/underscore-min.js"></script>
-    <script src="http://cdn.bootcss.com/history.js/1.8/bundled/html5/jquery.history.js"></script>
+    <script src="~/js/jquery.history.js"></script>
     <!--表单验证-->
     <script src="~/bower_components/jquery-validation/dist/jquery.validate.min.js"></script>
     <script src="~/bower_components/jquery-validation/src/localization/messages_zh.js"></script>
     <script src="~/js/common.js"></script>
     <style type="text/css"></style>
-
+    <!--[if lt IE 9]>
+      <script src="http://cdn.bootcss.com/babel-polyfill/6.2.0/polyfill.js"></script>
+    <![endif]-->
     <!--表单验证-->
     @* <script src="org/jquery-validation-1.14.0/dist/jquery.validate.min.js"></script>
     <script src="org/jquery-validation-1.14.0/dist/localization/messages_zh.js"></script>*@
@@ -74,12 +76,12 @@
                         <li><a href="javascript:void(0)" index="6">机票预订</a></li>
                         <li><a href="javascript:void(0)" index="7">接机服务</a></li>
                         <li><a href="javascript:void(0)" index="8">送机服务</a></li>
-                        <li class="act" index="9"><a href="javascript:void(0)">酒店服务</a></li>
+                        <li class="act"><a href="javascript:void(0)" index="9">酒店服务</a></li>
                         <li><a href="javascript:void(0)" index="10">产品研发</a></li>
                         <li><a href="javascript:void(0)" index="11">医生留言</a></li>
                         <li><a href="javascript:void(0)" index="12">客户投诉</a></li>
                         <li><a href="javascript:void(0)" index="13">联系方式</a></li>
-                      
+
 
                     </ul>
                 </div>
@@ -99,15 +101,36 @@
 
     <script>
         var indexs = [1, 2, 3, 4];
-        $(function () {
-            History.Adapter.bind(window, 'statechange', function () { 
-                var State = History.getState(); 
+        var MainHtml = { flights: 6, hotels: 9 }
+        var HistGo = function (index, title) {
 
-               
+            History.pushState({ state: index, rand: Math.random() }, title, 'state' + index, !1);
+            History.Adapter.trigger(window, "statechange");
+        }.bind(this);
+        ///var t = test.bind(this);
+        $(function () {
+            History.Adapter.bind(window, 'statechange', function () {
+                var State = History.getState();
+                var index = State.data.state;
+                var key = _.chain(MainHtml).pick(function (value, key) { return value == index }).keys().first().value();
+                if (key) {
+                    $('.usrBd .usrMn').load('/template/' + key + '.html');
+                }
+                else {
+                    $('.usrBd .usrMn').html('');
+                }
             });
 
-            $('.usrBd .usrSubMenu[index]').click(function () {
+            $('.usrBd .usrSubMenu a[index]').click(function (event) {
+                var curr = $(event.currentTarget);
+                curr.parents('ul').find('.act').removeClass('act');
+                curr.parent().addClass('act');
+                var index = parseInt(curr.addClass('act').attr('index'));
+                History.pushState({ state: index, rand: Math.random() }, $(curr).text(), "?state=" + index);
 
+                //History.replaceState({ state: index }, "State " + index, "?state=" + index, !1);
+                //History.Adapter.trigger(window, "statechange");
+                //HistGo(index, $(curr).text());
 
             })
         });
