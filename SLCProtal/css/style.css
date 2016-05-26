@@ -48,18 +48,40 @@
 .login_logName em.error{top:22px;}
 .login_rempwd{float:right;font-size:12px;color:#4375aa;font-weight:bold;}
 .login_rempwd:hover{text-decoration:underline;}
- /*首页*/
+ /*首页*/ 
 .htop{line-height:40px;background:#e4e7e7;height:40px;}
-.w1200{width:100%;margin:0 auto;} 
+.htop img{float:right;margin-right:100px;}
+.w1200_1{width:100%;margin:0 auto;height:590px;background:url("../images/index_bg_1.png")/*tpa=http://220.194.55.139/page/images/index_bg_1.png*/ no-repeat;} 
+.w1200_2{width:100%;margin:0 auto;background:url("../images/index_bg_2.png")/*tpa=http://220.194.55.139/page/images/index_bg_2.png*/ no-repeat;} 
 .hMenu{width:700px;height:80px;float:right;}
 .hMenu li{width:110px;height:80px;position:relative;float:left;z-index:10;}
 .hMenu li a{width:100%;height:40px;line-height:40px;position:absolute;left:0;top:-5px;display:block;text-align:center;font-size:14px;color:#6b7285;}
 .hMenu li a.active{color:#21abc6;}
+.use-tab{position:relative;top:170px;left:180px;width:650px;}
+.use-tab div{height:330px;overflow:auto;overflow-x:hidden;}
+.use-tab table{width:650px;border:1px solid #b1dbe2;} 
+.use-tab table th{background-color:#d2e8ec;padding:10px;font-size:14px;color:#1b6f76;font-weight:bold;text-align:left}
+.use-tab table td{border-top:1px solid #deeaec; padding:10px;text-align:left}
 
+/*头像*/
+.img-circle { border-radius: 50%; border:5px solid #98ced9;}
+.m-t-xs { margin-top: 5px;vertical-align:middle;}
+.img-responsive{ display: block;height: auto;max-width:60%;} 
 
+.user-head{width:100%;height:170px;text-align:center;overflow:hidden;}
+.lishead{text-align:center;padding-left:130px;padding-top:150px;position:relative;overflow:hidden;height:auto !important;}
+.lishead ul{display:block;text-align:center;}
+.lishead li{float:left;width:250px;height:230px;text-align:center;margin-bottom: 20px;}
+.lishead img{text-align:center;margin:0px 40px;overflow:hidden;}
+.lishead li div.tit{font-size:14px;font-weight:bold;margin-bottom:10px;}
+.lishead li div.txt{font-size:14px;margin-bottom:40px;width:210px;margin-left:10px;}
 
 /*机票酒店*/
 .userMenu{float:right;padding-right:180px;font-size:14px;height:80px;line-height:80px;color:#666666;}
+.userMenu a{font-size: 14px;margin: 0 5px;color:#6b7285;}
+.userMenu span{color:#c7c6c6;}
+.userMenu a.active{color:#21abc6;}
+
 .progressbar_bg{height:30px;background-color:#efefef;border-top:5px solid #cac8c8;text-align:center;padding:10px 20px;}
  
 .left_notstart{background: #efefef url("../images/icon/left_notstart.png")/*tpa=http://220.194.55.139/page/images/icon/left_notstart.png*/ no-repeat scroll 0 0;float: left;height: 12px;padding: 5px 35px;position: relative;width: 110px;}
@@ -83,9 +105,12 @@
 .usrSubMenu li a.active{font-weight:bold;}
 /*主体*/  
 .usrMn{width:1075px;float:right;}
-.usrBd{width:100%;}
-/*机票酒店*/
+.usrBd_index{width:100%;background:url("../images/index_bg_3.png")/*tpa=http://220.194.55.139/page/images/index_bg_3.png*/ repeat-y;} 
 .usrfligh{background:url("../images/jpjd_bg.png")/*tpa=http://220.194.55.139/page/images/jpjd_bg.png*/  repeat-y;background-attachment:fixed;background-position:top right; width: 100%;}
 .flighMn{height:20px;font-size:14px;font-weight:bold;color:#4f97e8;padding:30px 10px 0;}
 .tabfligh td{padding:10px;margin:10px;}
 .txtfligh{border:1px solid #a5c8f0;padding: 6px 12px;width:180px;}
+
+.usrBd{width:100%;background-color:#fff;} 
+
+

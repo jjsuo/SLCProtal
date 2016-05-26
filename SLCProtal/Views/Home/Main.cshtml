@@ -1,4 +1,5 @@
-﻿@{
+﻿@model SLCProtal.Models.Home.HomeModel
+@{
     Layout = null;
 }
 
@@ -17,6 +18,7 @@
     <script src="~/bower_components/moment/locale/zh-cn.js"></script>
     <script src="~/bower_components/underscore/underscore-min.js"></script>
     <script src="~/js/jquery.history.js"></script>
+       <script src="~/js/main.js"></script>
     <!--表单验证-->
     <script src="~/bower_components/jquery-validation/dist/jquery.validate.min.js"></script>
     <script src="~/bower_components/jquery-validation/src/localization/messages_zh.js"></script>
@@ -51,12 +53,12 @@
     <!--Progress Bar-->
     <div class="progressbar_bg">
         <div style="position: relative; margin-left: 200px; width: 1000px;">
-            <div class="left_complete">起草</div>
-            <div class="middle_start">审批中</div>
-            <div class="middle_notstart">合同签订</div>
-            <div class="middle_notstart">执行中</div>
-            <div class="middle_notstart">预约完成</div>
-            <div class="right_notstart">出国准备</div>
+            <div state="1">起草</div>
+            <div state="2">审批中</div>
+            <div state="3">合同签订</div>
+            <div state="4">执行中</div>
+            <div state="5">预约完成</div>
+            <div state="6">出国准备</div>
         </div>
     </div>
     <!--Progress Bar-->
@@ -67,16 +69,16 @@
             <div class="usrSid">
                 <div class="usrSidMenu">
                     <ul class="usrSubMenu" style="display: block;">
-                        <li><a href="javascript:void(0)" index="0">首页</a></li>
+                       <li><a href="javascript:void(0)" index="0">首页</a></li>
                         <li><a href="javascript:void(0)" index="1">查看服务</a></li>
                         <li><a href="javascript:void(0)" index="2">海外服务</a></li>
                         <li><a href="javascript:void(0)" index="3">查看翻译</a></li>
                         <li><a href="javascript:void(0)" index="4">查看签证</a></li>
                         <li><a href="javascript:void(0)" index="5">查看预约</a></li>
-                        <li><a href="javascript:void(0)" index="6">机票预订</a></li>
+                        <li><a href="javascript:void(0)" index="6" url="Home/flights">机票预订</a></li>
                         <li><a href="javascript:void(0)" index="7">接机服务</a></li>
                         <li><a href="javascript:void(0)" index="8">送机服务</a></li>
-                        <li class="act"><a href="javascript:void(0)" index="9">酒店服务</a></li>
+                        <li><a href="javascript:void(0)" index="9" url="Home/Hotels">酒店服务</a></li>
                         <li><a href="javascript:void(0)" index="10">产品研发</a></li>
                         <li><a href="javascript:void(0)" index="11">医生留言</a></li>
                         <li><a href="javascript:void(0)" index="12">客户投诉</a></li>
@@ -100,40 +102,11 @@
     <!--***footer***-->
 
     <script>
-        var indexs = [1, 2, 3, 4];
-        var MainHtml = { flights: 6, hotels: 9 }
-        var HistGo = function (index, title) {
 
-            History.pushState({ state: index, rand: Math.random() }, title, 'state' + index, !1);
-            History.Adapter.trigger(window, "statechange");
-        }.bind(this);
-        ///var t = test.bind(this);
-        $(function () {
-            History.Adapter.bind(window, 'statechange', function () {
-                var State = History.getState();
-                var index = State.data.state;
-                var key = _.chain(MainHtml).pick(function (value, key) { return value == index }).keys().first().value();
-                if (key) {
-                    $('.usrBd .usrMn').load('/template/' + key + '.html');
-                }
-                else {
-                    $('.usrBd .usrMn').html('');
-                }
-            });
-
-            $('.usrBd .usrSubMenu a[index]').click(function (event) {
-                var curr = $(event.currentTarget);
-                curr.parents('ul').find('.act').removeClass('act');
-                curr.parent().addClass('act');
-                var index = parseInt(curr.addClass('act').attr('index'));
-                History.pushState({ state: index, rand: Math.random() }, $(curr).text(), "?state=" + index);
-
-                //History.replaceState({ state: index }, "State " + index, "?state=" + index, !1);
-                //History.Adapter.trigger(window, "statechange");
-                //HistGo(index, $(curr).text());
-
-            })
-        });
+        var indexs = JSON.parse('@Html.Raw(Json.Encode(Model.SiteMaps))');
+        var state = '@Model.Status';
+   
+       
     </script>
 
 </body>

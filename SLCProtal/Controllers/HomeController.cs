@@ -55,8 +55,11 @@ namespace SLCProtal.Controllers
             home.Status = bizCase.Status;
             return home;
 
-
-
+        }
+        public ActionResult Hotels()
+        {
+            return View();
+        
         }
     }
 }

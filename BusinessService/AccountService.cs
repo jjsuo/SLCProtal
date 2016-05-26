@@ -23,9 +23,10 @@ namespace BusinessService
         public Account CheckUser(string userName, string passWord)
         {
             ConvertClass<Account> convertClass = new ConvertClass<Account>();
-            Account user = new Account();
-            user.UserId = Guid.NewGuid().ToString();
-            return user;
+            Account user = null;
+            //Account user = new Account();
+            //user.UserId = Guid.NewGuid().ToString();
+            //return user;
             SqlParameter[] sps = new SqlParameter[2];
             sps[0] = new SqlParameter("@loginname", userName);
             sps[1] = new SqlParameter("@password", passWord);

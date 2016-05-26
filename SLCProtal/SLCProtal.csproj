@@ -344,6 +344,10 @@
     <Content Include="css\base.css" />
     <Content Include="css\style.css" />
     <Content Include="Global.asax" />
+    <Content Include="images\head\team-daiwei.png" />
+    <Content Include="images\head\team-pic3.png" />
+    <Content Include="images\head\team-pic7.png" />
+    <Content Include="images\head\team-youyuchen.png" />
     <Content Include="images\icon\address.png" />
     <Content Include="images\icon\calendar.png" />
     <Content Include="images\icon\hotels.png" />
@@ -356,6 +360,9 @@
     <Content Include="images\icon\right_complete.png" />
     <Content Include="images\icon\right_notstart.png" />
     <Content Include="images\icon\right_start.png" />
+    <Content Include="images\index_bg_1.png" />
+    <Content Include="images\index_bg_2.png" />
+    <Content Include="images\index_bg_3.png" />
     <Content Include="images\jpjd_bg.png" />
     <Content Include="images\line.png" />
     <Content Include="images\login_baidu.png" />
@@ -363,10 +370,12 @@
     <Content Include="images\logo.png" />
     <Content Include="images\logo_c.png" />
     <Content Include="images\row_line.png" />
+    <Content Include="images\tel_400.png" />
     <Content Include="images\tj.png" />
     <Content Include="images\user.png" />
     <Content Include="js\common.js" />
     <Content Include="js\jquery.history.js" />
+    <Content Include="js\main.js" />
     <Content Include="plugins\debug\debug.js" />
     <Content Include="plugins\debug\styles\debug.css" />
     <Content Include="plugins\debug\styles\images\reset.svg" />
@@ -533,6 +542,7 @@
     <Content Include="resources\scripts\player\axplayer.js" />
     <Content Include="resources\scripts\player\splitter.js" />
     <Content Include="template\Flights.html" />
+    <None Include="Views\Home\Hotels.cshtml" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -603,9 +613,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="template\Hotels.html" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="template\Flights.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Home\Main.cshtml" />
