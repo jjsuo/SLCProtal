@@ -1,0 +1,52 @@
+﻿@model SLCProtal.Models.Service.PlanModel
+<div class="flighMn">
+    机票预订
+</div>
+@foreach (var item in @Model.Flights)
+{
+    
+    <div>
+        <img src="/images/row_line.png">
+    </div>
+    <div>
+        <table class="tabfligh">
+            <tbody>
+                <tr>
+                    <td>
+                        <img src="/images/icon/computer.png"></td>
+                    <td>
+                        <input type="text" class="txtfligh" placeholder="出发航班" value="@item.flightno"></td>
+                    <td>
+                        <input type="text" class="txtfligh" placeholder="航空公司" value="@item.tripcompany"></td>
+                </tr>
+                <tr>
+                    <td>
+                        <img src="/images/icon/flight.png"></td>
+
+                    <td>
+                        <input type="text" class="txtfligh" placeholder="出发机场" value="@item.fromport"></td>
+                    <td>
+                        <input type="text" class="txtfligh" placeholder="降落机场" value="@item.toport"></td>
+                </tr>
+                <tr>
+                    <td>
+                        <img src="/images/icon/time.png"></td>
+
+                    <td>
+                        <input type="text" class="txtfligh" placeholder="出发时间" value="@item.fromtime"></td>
+                    <td>
+                        <input type="text" class="txtfligh" placeholder="降落时间" value="@item.totime"></td>
+                </tr>
+
+            </tbody>
+        </table>
+
+    </div>
+
+   
+}
+<script>
+    $(function () {
+        $('.tabfligh input').attr('disabled', 'disabled');
+    })
+</script>

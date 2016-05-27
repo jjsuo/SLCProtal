@@ -12,18 +12,21 @@ namespace SLCProtal.Common
         {
             get
             {
-                if (HttpContext.Current.Session["AccountInfo"] == null)
-                {
-                    return null;
-                }
-                else
-                {
-                    return HttpContext.Current.Session["AccountInfo"] as Account;
-                }
+                Account account = new Account();
+                account.UserId = "406e73a7-4001-e611-819b-000c293cbef6";
+                return account;
+                //if (HttpContext.Current.Session["AccountInfo"] == null)
+                //{
+                //    return null;
+                //}
+                //else
+                //{
+                //    return HttpContext.Current.Session["AccountInfo"] as Account;
+                //}
             }
         }
 
-       
+
 
         public static void SetAccountInfo(Account account)
         {
@@ -42,6 +45,9 @@ namespace SLCProtal.Common
         {
             get
             {
+                BizCase bc = new BizCase();
+                bc.BizCaseId = "7675b10b-f70a-e611-81af-000c29de43e6";
+                return bc;
                 if (HttpContext.Current.Session["BizCaseInfo"] == null)
                 {
                     return null;
@@ -60,6 +66,6 @@ namespace SLCProtal.Common
             HttpContext.Current.Session["BizCaseInfo"] = bizCase;
         }
 
-       
+
     }
 }
