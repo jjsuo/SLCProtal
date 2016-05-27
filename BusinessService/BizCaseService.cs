@@ -15,6 +15,7 @@ using System.Text;
 using System.Threading.Tasks;
 using BusinessEntities;
 using Common;
+using Microsoft.Xrm.Sdk;
 
 namespace BusinessService
 {
@@ -76,6 +77,26 @@ namespace BusinessService
             specialist = convertClass.ToList(st.Tables[0]);
 
             return specialist;
+        }
+
+
+
+        public string ServiceScore(int type, int score,string bizCaseId)
+        {
+            string message = "S";
+            try
+            {
+                Entity entity = new Entity("slc_bizcase");
+                entity["score" + type] = score.ToString();
+                entity["createscore" + type] = DateTime.Now;
+                entity.Id = new Guid(bizCaseId);
+                CrmService.OrgService.Create(entity);
+            }
+            catch (Exception ex)
+            {
+                message = ex.Message;
+            }
+            return message;
         }
     }
 }
