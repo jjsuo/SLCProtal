@@ -374,6 +374,7 @@
     <Content Include="images\tj.png" />
     <Content Include="images\user.png" />
     <Content Include="js\common.js" />
+    <Content Include="js\index.js" />
     <Content Include="js\jquery.history.js" />
     <Content Include="js\main.js" />
     <Content Include="plugins\debug\debug.js" />
@@ -542,7 +543,7 @@
     <Content Include="resources\scripts\player\axplayer.js" />
     <Content Include="resources\scripts\player\splitter.js" />
     <Content Include="template\Flights.html" />
-    <None Include="Views\Home\Hotels.cshtml" />
+    <None Include="Views\Service\Hotels.cshtml" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -553,9 +554,11 @@
       <DependentUpon>Web.config</DependentUpon>
     </Content>
     <Content Include="Views\Web.config" />
+    <Content Include="Views\Service\Flights.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="speImage\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

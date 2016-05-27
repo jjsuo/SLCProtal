@@ -1,21 +1,9 @@
 ﻿
 $(function () {
     HistoryInit();
-    MainLoad();
-
-
+    MenuControll();
 });
-var MainLoad = function () {
-    //左导航和Top控制
-    indexs.forEach(function (index) {
-        $('.usrBd .usrSubMenu li a[index=' + index + ']').parent().show();
-    });
-    var divState = $('.progressbar_bg div[state=' + state + ']');
-    divState.prevAll().addClass('left_complete');
-    divState.addClass('middle_start');
-    divState.nextAll().addClass('middle_notstart');
 
-}
 var HistoryInit = function () {
     History.Adapter.bind(window, 'statechange', function () {
         var State = History.getState();
@@ -31,11 +19,21 @@ var HistoryInit = function () {
     });
     $('.usrBd .usrSubMenu li').hide();
     $('.usrBd .usrSubMenu li a[index]').click(function (event) {
+
         var curr = $(event.currentTarget);
+        if (!curr.attr('url')) {
+            return;
+        }
         curr.parents('ul').find('.act').removeClass('act');
         curr.parent().addClass('act');
         var index = parseInt(curr.addClass('act').attr('index'));
+
         History.pushState({ state: index, rand: Math.random() }, $(curr).text(), "?state=" + index);
     });
+    var state = common.GetRequest().state;
+    if (state) {
+        $(".usrBd .usrSidMenu a[index=" + state + "]").trigger('click');
+    }
+
 
 }

@@ -1,0 +1,46 @@
+﻿@model SLCProtal.Models.Service.HotelModel
+<div class="flighMn">
+    酒店服务
+</div>
+@foreach (var item in @Model.Hotels)
+{
+    <div>
+        <img src="/images/row_line.png">
+    </div>
+    <div>
+        <table class="tabfligh">
+            <tbody>
+                <tr>
+                    <td>
+                        <img src="/images/icon/hotels.png"></td>
+                    <td>
+                        <input type="text" class="txtfligh" placeholder="酒店名称" value="@item.hotel"></td>
+                    <td>
+                        <input type="text" class="txtfligh" placeholder="联系电话" value="@item.phone1"></td>
+                </tr>
+                <tr>
+                    <td>
+                        <img src="/images/icon/address.png"></td>
+                    <td colspan="2">
+                        <input type="text" class="txtfligh" placeholder="酒店地址" value="@item.address" style="width: 410px;"></td>
+                </tr>
+                <tr>
+                    <td>
+                        <img src="/images/icon/calendar.png"></td>
+
+                    <td>
+                        <input type="text" class="txtfligh" placeholder="入住日期" value="@item.start"></td>
+                    <td>
+                        <input type="text" class="txtfligh" placeholder="退房日期" value="@item.end"></td>
+                </tr>
+
+            </tbody>
+        </table>
+
+    </div>
+}
+<script>
+    $(function () {
+        $('.tabfligh input').attr('disabled', 'disabled');
+    })
+</script>

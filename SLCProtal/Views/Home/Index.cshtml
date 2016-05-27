@@ -1,23 +1,23 @@
-﻿@{
-    ViewBag.Title = "title";
-    Layout = null;
-}@{
-    ViewBag.Title = "title";
+﻿@model SLCProtal.Models.Home.MainModel
+@{
+    ViewBag.Title = "首页";
     Layout = null;
 }
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <link href="~/css/base.css" type="text/css" rel="stylesheet">
-    <link href="~/css/style.css" type="text/css" rel="stylesheet">
+    <link href="http://220.194.55.139/page/css/base.css" type="text/css" rel="stylesheet">
+    <link href="http://220.194.55.139/page/css/style.css" type="text/css" rel="stylesheet">
     <link href="~/bower_components/toastr/build/toastr.min.css" rel="stylesheet" />
     <style type="text/css"></style>
-    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script src="~/bower_components/jquery/dist/jquery.min.js"></script>
     <script src="~/bower_components/jquery/dist/jquery.min.js"></script>
     <script src="~/bower_components/toastr/build/toastr.min.js"></script>
     <script src="~/bower_components/moment/min/moment.min.js"></script>
     <script src="~/bower_components/moment/locale/zh-cn.js"></script>
     <script src="~/bower_components/underscore/underscore-min.js"></script>
+           <script src="~/js/common.js"></script>
+    <script src="~/js/index.js"></script>
     <!--表单验证-->
     <script src="~/bower_components/jquery-validation/dist/jquery.validate.min.js"></script>
     <script src="~/bower_components/jquery-validation/src/localization/messages_zh.js"></script>
@@ -46,10 +46,11 @@
             <a href="javascipt:void(0)">海外服务</a><span>/</span>
             <a href="javascipt:void(0)">联系方式</a>
         </div>
+        <a class="wecTips">
+            <img src="/images/logo_c.png">
+        </a>
     </div>
-    <a class="wecTips">
-        <img src="/images/logo_c.png">
-    </a>
+
     </div>
     <!--***header***-->
     <!--Progress Bar-->
@@ -79,76 +80,17 @@
                 <div>
                     <table>
                         <tbody>
-                            <tr>
-                                <td style="width: 350px;">文本内容文本内容文本内容文本内容文本内容 </td>
-                                <td style="width: 120px;">文本内容</td>
-                                <td style="width: 120px;">文本内容</td>
-                            </tr>
-                            <tr>
-                                <td>文本内容文本内容文本内容文本内容文本内容 </td>
-                                <td>文本内容</td>
-                                <td>文本内容</td>
-                            </tr>
-                            <tr>
-                                <td>文本内容文本内容文本内容文本内容文本内容 </td>
-                                <td>文本内容</td>
-                                <td>文本内容</td>
-                            </tr>
-                            <tr>
-                                <td>文本内容文本内容文本内容文本内容文本内容 </td>
-                                <td>文本内容</td>
-                                <td>文本内容</td>
-                            </tr>
-                            <tr>
-                                <td>文本内容文本内容文本内容文本内容文本内容 </td>
-                                <td>文本内容</td>
-                                <td>文本内容</td>
-                            </tr>
-                            <tr>
-                                <td>文本内容文本内容文本内容文本内容文本内容 </td>
-                                <td>文本内容</td>
-                                <td>文本内容</td>
-                            </tr>
-                            <tr>
-                                <td>文本内容文本内容文本内容文本内容文本内容 </td>
-                                <td>文本内容</td>
-                                <td>文本内容</td>
-                            </tr>
-                            <tr>
-                                <td>文本内容文本内容文本内容文本内容文本内容 </td>
-                                <td>文本内容</td>
-                                <td>文本内容</td>
-                            </tr>
-                            <tr>
-                                <td>文本内容文本内容文本内容文本内容文本内容 </td>
-                                <td>文本内容</td>
-                                <td>文本内容</td>
-                            </tr>
-                            <tr>
-                                <td>文本内容文本内容文本内容文本内容文本内容 </td>
-                                <td>文本内容</td>
-                                <td>文本内容</td>
-                            </tr>
-                            <tr>
-                                <td>文本内容文本内容文本内容文本内容文本内容 </td>
-                                <td>文本内容</td>
-                                <td>文本内容</td>
-                            </tr>
-                            <tr>
-                                <td>文本内容文本内容文本内容文本内容文本内容 </td>
-                                <td>文本内容</td>
-                                <td>文本内容</td>
-                            </tr>
-                            <tr>
-                                <td>文本内容文本内容文本内容文本内容文本内容 </td>
-                                <td>文本内容</td>
-                                <td>文本内容</td>
-                            </tr>
-                            <tr>
-                                <td>文本内容文本内容文本内容文本内容文本内容 </td>
-                                <td>文本内容</td>
-                                <td>文本内容</td>
-                            </tr>
+                            @foreach (var item in Model.ServiceItems)
+                            {
+                                <tr>
+                                    <td style="width: 350px;">@item.ServiceName </td>
+                                    <td style="width: 120px;">@item.ServiceContent</td>
+                                    <td style="width: 120px;">@item.ServiceTime</td>
+                                </tr>
+		 
+                            }
+
+
                         </tbody>
                     </table>
                 </div>
@@ -158,53 +100,19 @@
         <div class="w1200_2">
             <div class="lishead">
                 <ul>
-                    <li>
-                        <div class="user-head">
-                            <img class="img-circle m-t-xs img-responsive" src="/images/head/team-daiwei.png">
-                        </div>
-                        <div class="tit">姓名</div>
-                        <div class="txt">说明文字说明文字说明文字说明文字说明文字说明文字说明文字说明文字</div>
-                    </li>
-                    <li>
-                        <div class="user-head">
-                            <img class="img-circle m-t-xs img-responsive" src="/images/head/team-pic3.png">
-                        </div>
+                    @foreach (var item in Model.Specialist)
+                    {
+                        <li>
+                            <div class="user-head">
+                                
+                                <img class="img-circle m-t-xs img-responsive"  src="/speImage/@(item.ID.Split('\\')[1]).png">
+                            </div>
+                            <div class="tit">@item.Name</div>
+                            <div class="txt">@item.Description</div>
+                        </li>
+                    }
 
-                        <div class="tit">姓名</div>
-                        <div class="txt">说明文字说明文字说明文字说明文字说明文字说明文字说明文字说明文字</div>
-                    </li>
-                    <li>
-                        <div class="user-head">
-                            <img class="img-circle m-t-xs img-responsive" src="/images/head/team-pic7.png">
-                        </div>
 
-                        <div class="tit">姓名</div>
-                        <div class="txt">说明文字说明文字说明文字说明文字说明文字说明文字说明文字说明文字</div>
-                    </li>
-                    <li>
-                        <div class="user-head">
-                            <img class="img-circle m-t-xs img-responsive" src="/images/head/team-youyuchen.png">
-                        </div>
-
-                        <div class="tit">姓名</div>
-                        <div class="txt">说明文字说明文字说明文字说明文字说明文字说明文字说明文字说明文字</div>
-                    </li>
-                    <li>
-                        <div class="user-head">
-                            <img class="img-circle m-t-xs img-responsive" src="/images/head/team-youyuchen.png">
-                        </div>
-
-                        <div class="tit">姓名</div>
-                        <div class="txt">说明文字说明文字说明文字说明文字说明文字说明文字说明文字说明文字</div>
-                    </li>
-                    <li>
-                        <div class="user-head">
-                            <img class="img-circle m-t-xs img-responsive" src="/images/head/team-youyuchen.png">
-                        </div>
-
-                        <div class="tit">姓名</div>
-                        <div class="txt">说明文字说明文字说明文字说明文字说明文字说明文字说明文字说明文字</div>
-                    </li>
                 </ul>
             </div>
 
@@ -218,6 +126,9 @@
     </div>
     <!--***footer***-->
 
+    <script>
+        var menuState = '@Model.Status';
 
+    </script>
 </body>
 </html>

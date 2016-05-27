@@ -118,6 +118,40 @@ var logger = {
     success: toastr.success,
     warning: toastr.warning
 }
+var MenuControll = function () {
+    if (typeof menuState == 'undefined') {
+        return;
+    }
+    //左导航和Top控制
+    if (typeof indexs != 'undefined') {
+        indexs.forEach(function (index) {
+            $('.usrBd .usrSubMenu li a[index=' + index + ']').parent().show();
+        });
+    }
+    var stateBefore = menuState;
 
+    var divStates = $('.progressbar_bg div[state]');
+    if (menuState > divStates.length) {
+        menuState = divStates.length;
+    }
+    var divState = $('.progressbar_bg div[state=' + menuState + ']');
+    var stateStart = divState.prevAll().last();
+    var stateEnd = divState.nextAll().last();
+    divState.prevAll().addClass('middle_complete');
+    divState.addClass('middle_start');
+    divState.nextAll().addClass('middle_notstart');
+    stateStart.attr('class', 'left_complete');
+    stateEnd.attr('class', 'right_notstart');
+    //特殊情况 第一 或者最后或者全都结束
+    if (stateBefore > divStates.length) {
+        divState.attr('class', 'right_complete');
+    }
+    else if (divStates.index(divState) == 0) {
+        divState.attr('class', 'left_start');
+    }
+    else if (divStates.index(divState) + 1 == divStates.length) {
+        divState.attr('class', 'right_start');
+    }
+}
 common.getTemp(common.GetRequest());
 logger.init();
