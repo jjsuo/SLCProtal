@@ -34,7 +34,7 @@ namespace SLCProtal.Controllers
             string message=string.Empty;
 
             home = GetHomeModel(out message);
-            
+            ViewData["UserName"] = SessionManage.AccountInfo.UserName;
             if(!string.IsNullOrEmpty(message))
                 ViewData["error"] = message;
             return View(home);
