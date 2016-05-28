@@ -114,6 +114,7 @@
     <Compile Include="Controllers\AuthenticationController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\OtherController.cs" />
     <Compile Include="Controllers\ServiceController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -123,6 +124,7 @@
     <Compile Include="Models\Home\HomeModel.cs" />
     <Compile Include="Models\Home\MainModel.cs" />
     <Compile Include="Models\Service\HotelModel.cs" />
+    <Compile Include="Models\Service\OrderModel.cs" />
     <Compile Include="Models\Service\PlanModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

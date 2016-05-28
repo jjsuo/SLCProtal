@@ -26,13 +26,30 @@ namespace SLCProtal.Controllers
             return View(planModel);
         }
 
-
+        /// <summary>
+        /// 酒店页面
+        /// </summary>
+        /// <returns></returns>
         public ActionResult Hotels()
         {
             HotelModel hotelModel = new HotelModel();
             BookService bookService = new BookService();
             hotelModel.Hotels = bookService.GetListHotelOrderByCaseId(SessionManage.BizCaseInfo.BizCaseId);
             return View(hotelModel);
+        }
+
+        /// <summary>
+        /// 预约页面
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult Reservation()
+        {
+            OrderModel orderModel = new OrderModel();
+            OrderService orderService = new OrderService();
+            orderModel.Orders = orderService.GetListOrderByCaseId(SessionManage.BizCaseInfo.BizCaseId);
+            return View(orderModel);
         } 
+
+
     }
 }
