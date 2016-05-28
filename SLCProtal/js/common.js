@@ -119,15 +119,16 @@ var logger = {
     warning: toastr.warning
 }
 var MenuControll = function () {
-    if (typeof menuState == 'undefined') {
-        return;
-    }
     //左导航和Top控制
     if (typeof indexs != 'undefined') {
         indexs.forEach(function (index) {
             $('.usrBd .usrSubMenu li a[index=' + index + ']').parent().show();
         });
     }
+    if (typeof menuState == 'undefined') {
+        return;
+    }
+  
     var stateBefore = menuState;
 
     var divStates = $('.progressbar_bg div[state]');

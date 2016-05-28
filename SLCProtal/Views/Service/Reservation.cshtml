@@ -1,0 +1,56 @@
+﻿@model SLCProtal.Models.Service.OrderModel
+<div class="flighMn">
+    查看预约
+</div>
+<div>
+    <img src="/images/row_line.png">
+</div>
+<div>
+    <table class="tabfligh">
+        <tbody>
+            @foreach (var item in @Model.Orders)
+            {
+                
+           
+                <tr>
+                    <td>
+                        <img src="/images/icon/country.png"></td>
+                    <td colspan="2">
+                        <input type="text" class="txtfligh" placeholder="国家" style="width: 410px;" value="@item.Country"></td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <img src="/images/icon/hospital.png"></td>
+                    <td colspan="2">
+                        <input type="text" class="txtfligh" placeholder="医院" style="width: 410px;" value="@item.Hospital"></td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <img src="/images/icon/doctors.png"></td>
+                    <td colspan="2">
+                        <input type="text" class="txtfligh" placeholder="专家" style="width: 410px;" value="@item.Abroaddoctor"></td>
+                </tr>
+                <tr>
+                    <td>
+                        <img src="/images/icon/disease.png"></td>
+                    <td colspan="2">
+                        <input type="text" class="txtfligh" placeholder="疾病" style="width: 410px;" value="@item.Disease"></td>
+                </tr>
+                <tr>
+                    <td>
+                        <img src="/images/icon/visitdate.png"></td>
+                    <td colspan="2">
+                        <input type="text" class="txtfligh" placeholder="就诊日期" style="width: 410px;" value="@item.Starttime"></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+</div>
+<script>
+    $(function () {
+        $('.usrBd>div').attr('class', $('.usrBd .usrSubMenu a.act').attr('bgclass') + " clearfix");
+    })
+</script>

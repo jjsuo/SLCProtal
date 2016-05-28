@@ -545,6 +545,7 @@
     <Content Include="resources\scripts\player\axplayer.js" />
     <Content Include="resources\scripts\player\splitter.js" />
     <Content Include="template\Flights.html" />
+    <Content Include="Views\Other\Contact.cshtml" />
     <None Include="Views\Service\Hotels.cshtml" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -557,6 +558,7 @@
     </Content>
     <Content Include="Views\Web.config" />
     <Content Include="Views\Service\Flights.cshtml" />
+    <Content Include="Views\Service\Reservation.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

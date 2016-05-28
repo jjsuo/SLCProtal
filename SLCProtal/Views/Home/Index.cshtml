@@ -16,7 +16,7 @@
     <script src="~/bower_components/moment/min/moment.min.js"></script>
     <script src="~/bower_components/moment/locale/zh-cn.js"></script>
     <script src="~/bower_components/underscore/underscore-min.js"></script>
-           <script src="~/js/common.js"></script>
+    <script src="~/js/common.js"></script>
     <script src="~/js/index.js"></script>
     <!--表单验证-->
     <script src="~/bower_components/jquery-validation/dist/jquery.validate.min.js"></script>
@@ -39,12 +39,12 @@
         <div class="userMenu">
             <a href="javascipt:void(0)" class="active">首页</a><span>/</span>
             <a href="javascipt:void(0)">查看服务</a><span>/</span>
-            <a href="javascipt:void(0)">查看预约</a><span>/</span>
+            <a href="/Home/Main?state=5">查看预约</a><span>/</span>
             <a href="javascipt:void(0)">机票酒店</a><span>/</span>
             <a href="javascipt:void(0)">查看签证</a><span>/</span>
             <a href="javascipt:void(0)">接送服务</a><span>/</span>
             <a href="javascipt:void(0)">海外服务</a><span>/</span>
-            <a href="javascipt:void(0)">联系方式</a>
+            <a href="/Home/Main?state=13">联系方式</a>
         </div>
         <a class="wecTips">
             <img src="/images/logo_c.png">
@@ -104,7 +104,7 @@
                     {
                         <li>
                             <div class="user-head">
-                                
+
                                 <img class="img-circle m-t-xs img-responsive"  src="/speImage/@(item.ID.Split('\\')[1]).png">
                             </div>
                             <div class="tit">@item.Name</div>
