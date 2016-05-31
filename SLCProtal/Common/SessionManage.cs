@@ -12,17 +12,17 @@ namespace SLCProtal.Common
         {
             get
             {
-                Account account = new Account();
-                account.UserId = "406e73a7-4001-e611-819b-000c293cbef6";
-                return account;
-                //if (HttpContext.Current.Session["AccountInfo"] == null)
-                //{
-                //    return null;
-                //}
-                //else
-                //{
-                //    return HttpContext.Current.Session["AccountInfo"] as Account;
-                //}
+                //Account account = new Account();
+                //account.UserId = "406e73a7-4001-e611-819b-000c293cbef6";
+                //return account;
+                if (HttpContext.Current.Session["AccountInfo"] == null)
+                {
+                    return null;
+                }
+                else
+                {
+                    return HttpContext.Current.Session["AccountInfo"] as Account;
+                }
             }
         }
 

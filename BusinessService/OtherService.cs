@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using Common;
 using Microsoft.Xrm.Sdk;
 using BusinessEntities;
+using Microsoft.Xrm.Sdk.Messages;
 
 namespace BusinessService
 {
@@ -18,14 +19,14 @@ namespace BusinessService
         /// </summary>
         /// <param name="question"></param>
         /// <returns></returns>
-        public string CreateQA(string question,int type,string userid)
+        public string CreateQA(string question,string userid,string owernid)
         {
-            string result = "";
+            string result = "S";
             try
             {
                 Entity qa=new Entity("slc_qa");
                 qa["subject"] = question;
-                qa["slc_type"] = new OptionSetValue(type);
+               qa["ownerid"]=new EntityReference("systemuser",new Guid(owernid));
                 qa["slc_contactid"] = new EntityReference("contact", new Guid(userid));
                 CrmService.OrgService.Create(qa);
             }
@@ -37,19 +38,45 @@ namespace BusinessService
             return result;
         }
 
-        public List<QA> GetAllQA(int type, string userid)
+        public List<QA> GetAllQA(string userid)
         {
             ConvertClass<QA> convertClass = new ConvertClass<QA>();
             List<QA> qas = null;
 
-            SqlParameter[] sps = new SqlParameter[2];
-            sps[0] = new SqlParameter("@userid", userid);
-            sps[1] = new SqlParameter("@type", type);
+            //SqlParameter[] sps = new SqlParameter[2];
+            //sps[0] = new SqlParameter("@userid", userid);
+          
             DataSet st = SqlHelper.ExecuteDataset(SqlConnect.CRM_ADDON_ConnectString, CommandType.StoredProcedure,
-                "usp_protal_GetQAByUserId", sps);
+                "usp_protal_GetQAByUserId", new SqlParameter("@userid", userid));
             qas = convertClass.ToList(st.Tables[0]);
 
             return qas;
+        }
+
+        /// <summary>
+        /// 创建投诉和建议 1是投诉，2是建议
+        /// </summary>
+        /// <param name="userid"></param>
+        /// <param name="content"></param>
+        /// <param name="type"></param>
+        /// <returns></returns>
+        public string CreateComplain(string userid,string content,int type)
+        {
+            string result = "S";
+            try
+            {
+                Entity complain = new Entity("slc_complaint");
+                complain["slc_content"] = content;
+                complain["slc_type"] = new OptionSetValue(type);
+                complain["slc_contactid"] = new EntityReference("contact", new Guid(userid));
+                CrmService.OrgService.Create(complain);
+            }
+            catch (Exception ex)
+            {
+                result = ex.Message;
+
+            }
+            return result;
         }
     }
 }

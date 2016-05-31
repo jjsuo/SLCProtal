@@ -48,8 +48,14 @@ namespace SLCProtal.Controllers
             OrderService orderService = new OrderService();
             orderModel.Orders = orderService.GetListOrderByCaseId(SessionManage.BizCaseInfo.BizCaseId);
             return View(orderModel);
-        } 
+        }
 
+
+        //接机送机分别为俩页
+        public ActionResult PickUps(int type)
+        {
+            return View();
+        }
 
     }
 }

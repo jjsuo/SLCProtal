@@ -111,34 +111,47 @@ namespace BusinessService
         }
 
         /// <summary>
-        /// 修改密码
+        /// 发送验证码，如果成功返回客户的guid，如果失败返回E
         /// </summary>
         /// <param name="userId"></param>
         /// <param name="phone"></param>
         /// <returns></returns>
-        public string ChangePassword(string userId, string phone)
+        public string SendCode(string phone,string code)
         {
-            if (string.IsNullOrEmpty(userId))
-            {
-                Account account = CheckUser(phone);
+            string userId;
+            Account account = CheckUser(phone);
 
-                if (account == null)
-                    return "E";
-                else
-                {
-                    userId = account.UserId;
-                }
+            if (account == null)
+                return "E";
+            else
+            {
+                userId = account.UserId;
             }
+
             Entity letter = new Entity("letter");
             letter["slc_tonumber"] = phone;
             letter["to"] = new EntityReference("contact", new Guid(userId));
             letter["slc_messagetype"] = new OptionSetValue(4);
             letter["subject"] = "修改密码通知短信";
-            Random rad = new Random(); //实例化随机数产生器rad；
-            int value = rad.Next(1000, 10000); //用rad生成大于等于1000，小于等于9999的随机数；
-            letter["slc_content"] = value.ToString(CultureInfo.InvariantCulture);
+
+            letter["slc_content"] = code.ToString(CultureInfo.InvariantCulture);
             CrmService.OrgService.Create(letter);
-            return value.ToString(CultureInfo.InvariantCulture);
+            return account.UserId.ToString();
+        }
+
+
+        /// <summary>
+        /// 修改密码
+        /// </summary>
+        /// <param name="userid"></param>
+        /// <param name="newPassword"></param>
+        /// <returns></returns>
+        public void ChangePassword(string userid,string newPassword)
+        {
+            Entity contact=new Entity("contact");
+            contact["slc_password"] = newPassword;
+            CrmService.OrgService.Update(contact);
+           
         }
     }
 }

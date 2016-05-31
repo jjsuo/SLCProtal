@@ -14,6 +14,63 @@ namespace SLCProtal.Controllers
 {
     public class AccountController : BaseController
     {
+        //验证码
+        private string _code = "0000";
+
+        //用户的id，发送验证码中复制
+        private string _accountId = "";
+
+       
+        public ActionResult ChangePassword()
+        {
+            return View();
+        }
+         [HttpPost]
+        //修改密码和忘记密码的区别在于 phone参数是否为空
+        public JsonResult ChangePassword(string code,string password)
+         {
+
+            var message = "";
+            if (this._code == code)
+            {
+                AccountService accountService=new AccountService();
+
+                //如果已经登陆了，从Session中获取account的值
+                if (SessionManage.AccountInfo != null)
+                    _accountId = SessionManage.AccountInfo.UserId;
+
+                accountService.ChangePassword(_accountId, password);
+                message = "S";
+            }
+            else
+            {
+                ViewData["error"] = "验证码错误！";
+                message = "E";
+            }
+            return Json(new { result = message });  
+        }
+
+        [HttpPost]
+        public JsonResult SendPassWord(string phone)
+        {
+
+
+            Random rad = new Random(); //实例化随机数产生器rad；
+            _code = rad.Next(1000, 10000).ToString(); //用rad生成大于等于1000，小于等于9999的随机数；
+
+            AccountService accountService = new AccountService();
+            string message= accountService.SendCode(phone, _code.ToString());
+            if (message == "E")
+            {
+                _accountId = message;
+                return Json(new {result = message});
+            }
+            else
+            {
+
+                return Json(new {result = "S"});
+            }
+        }
 
         public ActionResult Login(string RedirectUrl)
         {

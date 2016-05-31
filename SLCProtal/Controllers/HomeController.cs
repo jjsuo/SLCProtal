@@ -56,10 +56,6 @@ namespace SLCProtal.Controllers
             return home;
 
         }
-        public ActionResult Hotels()
-        {
-            return View();
-        
-        }
+     
     }
 }
