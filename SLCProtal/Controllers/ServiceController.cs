@@ -54,7 +54,12 @@ namespace SLCProtal.Controllers
         //接机送机分别为俩页
         public ActionResult PickUps(int type)
         {
-            return View();
+            PickModel pickModel=new PickModel();
+            BookService bookService=new BookService();
+            pickModel.PicklList = bookService.GetListPeoplesByCaseId(SessionManage.BizCaseInfo.BizCaseId,
+                type);
+
+            return View(pickModel);
         }
 
     }

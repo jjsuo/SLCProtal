@@ -37,5 +37,22 @@ namespace BusinessService
 
             return planBook;
         }
+
+
+        public List<PickPeople> GetListPeoplesByCaseId(string bizCaseId,int type)
+        {
+            ConvertClass<PickPeople> convertClass = new ConvertClass<PickPeople>();
+            List<PickPeople> pickPeoples = null;
+
+            SqlParameter[] sps = new SqlParameter[2];
+            sps[0] = new SqlParameter("@bizCaseId", bizCaseId);
+            sps[1] = new SqlParameter("@type", type);
+
+            DataSet st = SqlHelper.ExecuteDataset(SqlConnect.CRM_ADDON_ConnectString, CommandType.StoredProcedure,
+                "usp_protal_GetListPeoplesByCaseId", sps);
+            pickPeoples = convertClass.ToList(st.Tables[0]);
+
+            return pickPeoples;
+        }
     }
 }
