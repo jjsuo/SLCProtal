@@ -1,2 +1,40 @@
-﻿@model dynamic
+﻿@model SLCProtal.Models.Other.SuggestionModel
 
+
+<div class="flighMn">
+    投诉建议
+</div>
+<div>
+    <img src="images/row_line.png">
+</div>
+@using (Html.BeginForm("Other", "CreateQA", FormMethod.Post, new { id = "sugg_content", @class = "sugg_content", novalidate = "novalidate", onsubmit = "return check()" }))
+{
+
+    <select class="sugg_sel" value ="@Model.Type" down="suggDown">
+    </select>
+    <textarea class="sugg_text" placeholder="投诉/建议" value="@Model.Content"></textarea>
+
+    <div class="sugg_mess">
+        盛诺一家致力于海外医疗服务，您的反馈和建议是我们不断提高服务品质的动力，我们会第一时间由品质监管部门妥善处理您的需求！
+                        如果您在国内，您也可以直接拨打我公司质监电话400-967-6800
+                        谢谢您的支持！
+    </div>
+    <div class="div_sub">
+        <button type="submit" class="btn_blue">提交</button>
+        &nbsp;&nbsp;&nbsp;
+                        <button type="reset" class="btn_blue">清除</button>
+    </div>
+}
+
+<script>
+    //清除
+    function check() {
+        var text = $('.sugg_text').val();
+        if (!text) {
+            logger.error('请输入内容');
+            return false;
+        }
+        return true;
+    }
+
+</script>

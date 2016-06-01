@@ -1,2 +1,64 @@
 ﻿@model SLCProtal.Models.Other.QAModel
 
+<div class="flighMn">
+    医生留言页
+</div>
+<div>
+    <img src="images/row_line.png">
+</div>
+<div class="queslist">
+    @foreach (var item in @Model.Qas)
+    {
+        if (!string.IsNullOrEmpty(item.anwser))
+        { 
+        <div class="questionanswers">
+            <label>
+                @item.question
+            </label>
+        </div>
+        <div class="answer">
+            <div class="answercontent">
+                <label>
+                    @item.anwser
+                </label>
+            </div>
+        </div>
+        
+        }
+        else
+        {   
+        <div class="questino">
+            <label>
+                @item.question
+            </label>
+        </div>
+            
+        }
+
+    }
+
+</div>
+@using (Html.BeginForm("Other", "CreateQA", FormMethod.Post, new { id = "subcontent", @class = "subcontent", novalidate = "novalidate" }))
+{
+    <textarea id="Question" class="text_box" contenteditable="true" value="@Model.Question" placeholder="请留言"></textarea>
+    <div style="text-align: right;">
+        <button class="btn_blue" type="submit" id="btnSubmit">提交</button>
+    </div>
+}
+<script>
+    $('#Question').keydown(function (event) {
+
+        if (event.currentTarget.value) {
+            $('#btnSubmit').removeAttr('disabled');
+        }
+        else {
+            $('#btnSubmit').attr('disabled', 'disabled');
+        }
+    })
+</script>
+@*<form class="subcontent" action="" method="post" novalidate="novalidate">
+    <textarea id="text" class="text_box" contenteditable="true" placeholder="请留言"></textarea>
+    <div style="text-align: right;">
+        <button class="btn_blue" type="submit">提交</button>
+    </div>
+</form>*@

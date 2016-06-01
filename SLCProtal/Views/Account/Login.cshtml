@@ -19,6 +19,7 @@
     <script src="~/bower_components/toastr/build/toastr.min.js"></script>
     <script src="~/bower_components/moment/min/moment.min.js"></script>
     <script src="~/bower_components/moment/locale/zh-cn.js"></script>
+    <script src="~/bower_components/layer/layer.js"></script>
     <!--表单验证-->
     <script src="~/bower_components/jquery-validation/dist/jquery.validate.min.js"></script>
     <script src="~/bower_components/jquery-validation/src/localization/messages_zh.js"></script>
@@ -66,9 +67,9 @@
                             <li class="login_name">
                                 <input type="text" name="username" class="login_iput" value="@Model.username"></li>
                             <li class="login_pwd">
-                                <input type="text" name="password" class="login_iput" value="@Model.PassWord"></li>
+                                <input type="password" name="password" class="login_iput" value="@Model.PassWord"></li>
                             <li class="login_logName">
-                                <a href="#" class="login_rempwd">忘记密码？</a>
+                                <a href="javascript:void(0)" class="login_rempwd">忘记密码？</a>
                                 <input type="checkbox" checked="checked" id="cookietime" name="checkbox">
                                 <label style="margin-left: 2px; color: #6c6e70;" for="cookietime">记住密码</label>
 
@@ -96,6 +97,18 @@
 
     <script type="text/javascript">
         $(function () {
+            //忘记密码
+            $('.login_logName .login_rempwd').click(function () {
+
+                layer.open({
+                    type: 2,
+                    title: '忘记密码',
+                    shadeClose: false,
+                    shade: 0.8,
+                    area: ['500px', '508px'],
+                    content: 'Account/ChangePassword' //iframe的url
+                });
+            })
             /*验证登录*/
             $("#loginForm").validate({
                 errorElement: 'em',

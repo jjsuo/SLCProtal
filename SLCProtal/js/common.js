@@ -59,7 +59,7 @@ var request = {
             beforeSend: function (XMLHttpRequest) {
 
             }
-        });
+        }).error(logger.ajaxError.bind(this));
     },
     post: function (url, data) {
 
@@ -73,7 +73,7 @@ var request = {
                 XMLHttpRequest.setRequestHeader("Accept", "application/json");
             },
             data: data
-        });
+        }).error(logger.ajaxError.bind(this));
     },
     form: function (url, data) {
 
@@ -87,7 +87,7 @@ var request = {
                 XMLHttpRequest.setRequestHeader("Accept", "application/x-www-form-urlencoded");
             },
             data: data
-        });
+        }).error(logger.ajaxError.bind(this));;
     }
 };
 var logger = {
@@ -116,7 +116,11 @@ var logger = {
     info: toastr.info,
     error: toastr.error,
     success: toastr.success,
-    warning: toastr.warning
+    warning: toastr.warning,
+    ajaxError: function (msg) {
+        window.showInfoOnSubmit = !0;
+        logger.error('status:' + msg.status + ",statusText:" + msg.statusText);
+    }
 }
 var MenuControll = function () {
     //左导航和Top控制
@@ -128,7 +132,7 @@ var MenuControll = function () {
     if (typeof menuState == 'undefined') {
         return;
     }
-  
+
     var stateBefore = menuState;
 
     var divStates = $('.progressbar_bg div[state]');
