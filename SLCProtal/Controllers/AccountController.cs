@@ -14,11 +14,11 @@ namespace SLCProtal.Controllers
 {
     public class AccountController : BaseController
     {
-        //验证码
-        private string _code = "0000";
+        ////验证码
+        //private string _code = "0000";
 
-        //用户的id，发送验证码中复制
-        private string _accountId = "";
+        ////用户的id，发送验证码中复制
+        //private string _accountId = "";
 
        
         public ActionResult ChangePassword()
@@ -29,17 +29,17 @@ namespace SLCProtal.Controllers
         //修改密码和忘记密码的区别在于 phone参数是否为空
         public JsonResult ChangePassword(string code,string password)
          {
+            if(Session["code"]==null||SessionManage.AccountInfo==null)
+                return Json(new { result = "验证码过期!" });  
 
             var message = "";
-            if (this._code == code)
+              
+            if (Session["code"].ToString() == code)
             {
                 AccountService accountService=new AccountService();
 
                 //如果已经登陆了，从Session中获取account的值
-                if (SessionManage.AccountInfo != null)
-                    _accountId = SessionManage.AccountInfo.UserId;
-
-                accountService.ChangePassword(_accountId, password);
+                accountService.ChangePassword(SessionManage.AccountInfo.UserId, password);
                 message = "S";
             }
             else
@@ -56,18 +56,20 @@ namespace SLCProtal.Controllers
 
 
             Random rad = new Random(); //实例化随机数产生器rad；
-            _code = rad.Next(1000, 10000).ToString(); //用rad生成大于等于1000，小于等于9999的随机数；
+            string code = rad.Next(1000, 10000).ToString(); //用rad生成大于等于1000，小于等于9999的随机数；
 
             AccountService accountService = new AccountService();
             string message= accountService.SendCode(phone, _code.ToString());
             if (message == "E")
             {
-                _accountId = message;
+                //_accountId = message;
                 return Json(new {result = message});
             }
             else
             {
-
+                Account account = new Account() { UserId = message };
+                SessionManage.SetAccountInfo(account);
+                Session["code"] = code;
                 return Json(new {result = "S"});
             }
         }
