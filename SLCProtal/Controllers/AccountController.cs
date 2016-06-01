@@ -59,7 +59,7 @@ namespace SLCProtal.Controllers
             string code = rad.Next(1000, 10000).ToString(); //用rad生成大于等于1000，小于等于9999的随机数；
 
             AccountService accountService = new AccountService();
-            string message= accountService.SendCode(phone, _code.ToString());
+            string message = accountService.SendCode(phone, code.ToString());
             if (message == "E")
             {
                 //_accountId = message;
