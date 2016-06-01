@@ -130,6 +130,7 @@
     <Compile Include="Models\Service\OrderModel.cs" />
     <Compile Include="Models\Service\PickModel.cs" />
     <Compile Include="Models\Service\PlanModel.cs" />
+    <Compile Include="Models\Service\ScoreModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -985,6 +986,7 @@
     <Content Include="Views\Service\Flights.cshtml" />
     <Content Include="Views\Service\Reservation.cshtml" />
     <None Include="Views\Service\PickUps.cshtml" />
+    <Content Include="Views\Service\Scores.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

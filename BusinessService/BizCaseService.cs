@@ -81,16 +81,21 @@ namespace BusinessService
 
 
 
-        public string ServiceScore(int type, int score,string bizCaseId)
+        public string ServiceScore(List<Score> scores ,string bizCaseId)
         {
             string message = "S";
             try
             {
                 Entity entity = new Entity("slc_bizcase");
-                entity["score" + type] = score.ToString();
-                entity["createscore" + type] = DateTime.Now;
+
+                foreach (var score in scores)
+                {
+                    entity["score" + score.Type] = score.ScoreCount.ToString();
+                    entity["createscore" + score.Type] = DateTime.Now;
+                }
+                
                 entity.Id = new Guid(bizCaseId);
-                CrmService.OrgService.Create(entity);
+                CrmService.OrgService.Update(entity);
             }
             catch (Exception ex)
             {

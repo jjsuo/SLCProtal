@@ -62,5 +62,23 @@ namespace SLCProtal.Controllers
             return View(pickModel);
         }
 
+        /// <summary>
+        /// 评分叶
+        /// </summary>
+        /// <param name="scoreModel"></param>
+        /// <returns></returns>
+        [HttpPost]
+        public JsonResult Scores(ScoreModel scoreModel)
+        {
+            BizCaseService bizCaseService=new BizCaseService();
+            string message= bizCaseService.ServiceScore(scoreModel.Scores, SessionManage.BizCaseInfo.BizCaseId);
+
+            return Json(new { result = message });  
+        }
+
+        public ActionResult Scores()
+        {
+            return View();
+        }
     }
 }
