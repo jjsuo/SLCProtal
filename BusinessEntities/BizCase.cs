@@ -20,6 +20,8 @@ namespace BusinessEntities
 
         public string Status { get; set; }
 
+        public string Createdon { get; set; }
+
         public string OwnerId { get; set; }
     }
 }
