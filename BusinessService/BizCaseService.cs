@@ -79,7 +79,18 @@ namespace BusinessService
             return specialist;
         }
 
+        public List<BizCase> GetBizCases(string userId)
+        {
+            ConvertClass<BizCase> convertClass = new ConvertClass<BizCase>();
+            List<BizCase> bizCases = null;
 
+
+            DataSet st = SqlHelper.ExecuteDataset(SqlConnect.CRM_ADDON_ConnectString, CommandType.StoredProcedure,
+                "usp_protal_GetBizCases", new SqlParameter("@userId", userId));
+            bizCases = convertClass.ToList(st.Tables[0]);
+
+            return bizCases;
+        }
 
         public string ServiceScore(List<Score> scores ,string bizCaseId)
         {

@@ -14,6 +14,17 @@ namespace SLCProtal.Controllers
         //
         // GET: /Service/
 
+        public ActionResult ServiceInfo()
+        {
+            ServiceInfoModel serviceInfoModel=new ServiceInfoModel();
+            BizCaseService bizCaseService=new BizCaseService();
+            ServiceItemService service=new ServiceItemService();
+            serviceInfoModel.BizCases = bizCaseService.GetBizCases(SessionManage.AccountInfo.UserId);
+            serviceInfoModel.ServiceItems = service.GetServiceItemByBizCase(SessionManage.BizCaseInfo.BizCaseId);
+            return View(serviceInfoModel);
+        }
+
+
         /// <summary>
         /// 机票页面
         /// </summary>
@@ -80,5 +91,7 @@ namespace SLCProtal.Controllers
         {
             return View();
         }
+
+       // public 
     }
 }

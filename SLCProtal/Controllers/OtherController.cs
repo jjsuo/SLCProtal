@@ -32,28 +32,31 @@ namespace SLCProtal.Controllers
         }
 
         [HttpPost]
-        public ActionResult CreateQA(QAModel qa)
+        public JsonResult CreateQA(QAModel qa)
         {
             OtherService otherService = new OtherService();
-            string result= otherService.CreateQA(qa.Question, SessionManage.AccountInfo.UserId,
+            string message= otherService.CreateQA(qa.Question, SessionManage.AccountInfo.UserId,
                 SessionManage.BizCaseInfo.OwnerId);
-            if (result != "S")
-                ViewData["error"] = "出错了!";
-            return View("QandA", qa);
+            return Json(new { result = message });  
+            //if (result != "S")
+            //    ViewData["error"] = "出错了!";
+            //return View("QandA", qa);
         }
 
        [HttpPost]
-        public ActionResult CreateSuggestion(SuggestionModel model)
+        public JsonResult CreateSuggestion(SuggestionModel model)
         {
             OtherService otherService = new OtherService();
-            string result = otherService.CreateComplain(SessionManage.AccountInfo.UserId,
+            string message = otherService.CreateComplain(SessionManage.AccountInfo.UserId,
                 model.Content,model.Type);
-            if (result != "S")
-            { 
-                ViewData["error"] = "出错了!";
-                return View("Suggestions", model);
-            }
-            return View("Suggestions", new SuggestionModel());
+            return Json(new { result = message });  
+
+            //if (result != "S")
+            //{ 
+            //    ViewData["error"] = "出错了!";
+            //    return View("Suggestions", model);
+            //}
+            //return View("Suggestions", new SuggestionModel());
         }
        public ActionResult Suggestions()
        {

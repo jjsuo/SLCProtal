@@ -40,6 +40,16 @@ namespace SLCProtal.Controllers
             return View(home);
         }
 
+
+        public ActionResult AccountInfo()
+        {
+            AccountInfoModel accountInfo=new AccountInfoModel();
+            AccountService accountService=new AccountService();
+            accountInfo.Account=accountService.GetUser(SessionManage.AccountInfo.UserId);
+            accountInfo.Sick = accountService.GetSickPeople(SessionManage.AccountInfo.UserId);
+            return View(accountInfo);
+        }
+
         private HomeModel GetHomeModel(out string message)
         {
             message = "";

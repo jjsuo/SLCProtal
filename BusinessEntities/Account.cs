@@ -10,6 +10,9 @@ namespace BusinessEntities
     {
         public string UserId { get; set; }
 
+
+        public string LoginName { get; set; }
+
         //用户名
         public string UserName { get; set; }
 
@@ -27,6 +30,9 @@ namespace BusinessEntities
 
         //联系方式
         public string Phone { get; set; }
+
+        //联系方式
+        public string Phone1 { get; set; }
 
         //地址
         public string Address { get; set; }
