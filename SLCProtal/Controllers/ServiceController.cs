@@ -13,7 +13,10 @@ namespace SLCProtal.Controllers
     {
         //
         // GET: /Service/
-
+        /// <summary>
+        /// 服务信息页
+        /// </summary>
+        /// <returns></returns>
         public ActionResult ServiceInfo()
         {
             ServiceInfoModel serviceInfoModel=new ServiceInfoModel();
@@ -24,6 +27,41 @@ namespace SLCProtal.Controllers
             return View(serviceInfoModel);
         }
 
+        /// <summary>
+        /// 翻译页
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult Translation()
+        {
+            TransModel transModel=new TransModel();
+            TransService service=new TransService();
+            transModel.Transes = service.GeTranses(SessionManage.BizCaseInfo.BizCaseId);
+            return View(transModel);
+        }
+
+        /// <summary>
+        /// 签证页
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult Visa()
+        {
+            VisaModel visaModel=new VisaModel();
+            VisaService visaService=new VisaService();
+            visaModel.Visas = visaService.GetListVisaByBizCaseId(SessionManage.BizCaseInfo.BizCaseId);
+            return View(visaModel);
+        }
+
+        /// <summary>
+        /// 海外服务
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult OverseasService()
+        {
+            OverSeaServiceItemModel model=new OverSeaServiceItemModel();
+            ServiceItemService service=new ServiceItemService();
+            model.OverseaServiceItems = service.GetOverSeaServiceItemByBizCase(SessionManage.BizCaseInfo.BizCaseId);
+            return View(model);
+        }
 
         /// <summary>
         /// 机票页面

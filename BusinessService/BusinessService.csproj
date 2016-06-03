@@ -51,6 +51,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ServiceItemService.cs" />
     <Compile Include="SiteMapService.cs" />
+    <Compile Include="TransService.cs" />
+    <Compile Include="VisaService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BusinessEntities\BusinessEntities.csproj">

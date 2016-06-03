@@ -37,5 +37,24 @@ namespace BusinessService
 
             return serviceItems;
         }
+
+
+        /// <summary>
+        /// 获取服务项根据服务id
+        /// </summary>
+        /// <param name="bizCaseId"></param>
+        /// <returns></returns>
+        public List<OverseaServiceItem> GetOverSeaServiceItemByBizCase(string bizCaseId)
+        {
+            ConvertClass<OverseaServiceItem> convertClass = new ConvertClass<OverseaServiceItem>();
+            List<OverseaServiceItem> serviceItems = null;
+
+
+            DataSet st = SqlHelper.ExecuteDataset(SqlConnect.CRM_ADDON_ConnectString, CommandType.StoredProcedure,
+                "usp_protal_GetOverSeaServiceItemByBizCase", new SqlParameter("@bizCaseId", bizCaseId));
+            serviceItems = convertClass.ToList(st.Tables[0]);
+
+            return serviceItems;
+        }
     }
 }
