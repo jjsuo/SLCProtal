@@ -27,6 +27,16 @@ namespace SLCProtal.Controllers
             return View(serviceInfoModel);
         }
 
+        public ActionResult HistoryBizCase(string bizCaseId)
+        {
+            HistroyBizCaseModel model=new HistroyBizCaseModel();
+            BizCaseService service=new BizCaseService();
+            ServiceItemService serviceItemService=new ServiceItemService();
+            model.BizCaseDetail = service.GetBizCaseDetail(bizCaseId);
+            model.ServiceItems = serviceItemService.GetServiceItemByBizCase(bizCaseId);
+            return View(model);
+        }
+
         /// <summary>
         /// 翻译页
         /// </summary>
@@ -107,7 +117,7 @@ namespace SLCProtal.Controllers
             BookService bookService=new BookService();
             pickModel.PicklList = bookService.GetListPeoplesByCaseId(SessionManage.BizCaseInfo.BizCaseId,
                 type);
-
+            ViewData["Type"] = type;
             return View(pickModel);
         }
 

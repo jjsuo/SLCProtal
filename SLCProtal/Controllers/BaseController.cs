@@ -4,6 +4,7 @@ using System.Linq;
 using System.Reflection;
 using System.Web;
 using System.Web.Mvc;
+using Common;
 using SLCProtal.Common;
 
 namespace SLCProtal.Controllers
@@ -29,6 +30,7 @@ namespace SLCProtal.Controllers
                 //跳转到错误页面
                 HandleErrorInfo oHandleErrorInfo = new HandleErrorInfo(filterContext.Exception, controllerName, actionName);
 
+                LogHelper.Error(filterContext.Exception.Message + filterContext.Exception.StackTrace);
                 var method = typeof(ControllerActionInvoker).GetMethod("GetControllerDescriptor", BindingFlags.Instance | BindingFlags.NonPublic);
                 var controllerDescriptor = (ControllerDescriptor)method.Invoke(this.ActionInvoker, new object[] { this.ControllerContext }); ;
                 var actionDescriptor = controllerDescriptor.FindAction(this.ControllerContext, actionName);

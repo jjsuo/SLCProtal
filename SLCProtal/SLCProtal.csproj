@@ -39,6 +39,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="log4net">
+      <HintPath>..\packages\log4net.2.0.5\lib\net45-full\log4net.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -127,6 +130,7 @@
     <Compile Include="Models\Home\MainModel.cs" />
     <Compile Include="Models\Other\QAModel.cs" />
     <Compile Include="Models\Other\SuggestionModel.cs" />
+    <Compile Include="Models\Service\HistroyBizCaseModel.cs" />
     <Compile Include="Models\Service\HotelModel.cs" />
     <Compile Include="Models\Service\OrderModel.cs" />
     <Compile Include="Models\Service\OverSeaServiceItemModel.cs" />
@@ -1012,6 +1016,7 @@
     <Content Include="Views\Home\AccountInfo.cshtml" />
     <None Include="Views\Other\QandA.cshtml" />
     <None Include="Views\Other\Suggestions.cshtml" />
+    <Content Include="Views\Service\HistoryBizCase.cshtml" />
     <None Include="Views\Service\Hotels.cshtml" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -1027,12 +1032,10 @@
     <Content Include="Views\Service\Reservation.cshtml" />
     <Content Include="Views\Service\OverseasService.cshtml" />
     <None Include="Views\Service\PickUps.cshtml" />
-
     <Content Include="Views\Service\Scores.cshtml" />
     <Content Include="Views\Service\ServiceInfo.cshtml" />
     <Content Include="Views\Service\Translation.cshtml" />
     <Content Include="Views\Service\Visa.cshtml" />
-
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

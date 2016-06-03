@@ -113,7 +113,7 @@ namespace SLCProtal.Controllers
         [HttpPost]
         public ActionResult Login(LoginModel oLoginModel)
         {
-
+           
             AccountService service = new AccountService();
             Account account = service.CheckUser(oLoginModel.username, oLoginModel.PassWord);
             if (account != null)

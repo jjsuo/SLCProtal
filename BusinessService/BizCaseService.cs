@@ -79,6 +79,11 @@ namespace BusinessService
             return specialist;
         }
 
+        /// <summary>
+        /// 获取历史服务
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <returns></returns>
         public List<BizCase> GetBizCases(string userId)
         {
             ConvertClass<BizCase> convertClass = new ConvertClass<BizCase>();
@@ -92,6 +97,12 @@ namespace BusinessService
             return bizCases;
         }
 
+        /// <summary>
+        /// 服务评分
+        /// </summary>
+        /// <param name="scores"></param>
+        /// <param name="bizCaseId"></param>
+        /// <returns></returns>
         public string ServiceScore(List<Score> scores ,string bizCaseId)
         {
             string message = "S";
@@ -113,6 +124,21 @@ namespace BusinessService
                 message = ex.Message;
             }
             return message;
+        }
+
+
+        public BizCaseDetail GetBizCaseDetail(string bizCaseId)
+        {
+            ConvertClass<BizCaseDetail> convertClass = new ConvertClass<BizCaseDetail>();
+            BizCaseDetail bizCaseDetail = null;
+
+
+            DataSet st = SqlHelper.ExecuteDataset(SqlConnect.CRM_ADDON_ConnectString, CommandType.StoredProcedure,
+                "usp_protal_GetBizCaseDetail", new SqlParameter("@bizCaseId", bizCaseId));
+            if (st.Tables[0].Rows.Count < 0) return null;
+            bizCaseDetail = convertClass.ToT(st.Tables[0].Rows[0]);
+
+            return bizCaseDetail;
         }
     }
 }

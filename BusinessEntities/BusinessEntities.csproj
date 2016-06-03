@@ -42,6 +42,7 @@
     <Compile Include="Account.cs" />
     <Compile Include="BizCase.cs" />
     <Compile Include="BizCaseStatus.cs" />
+    <Compile Include="BizCaseDetail.cs" />
     <Compile Include="HotelBook.cs" />
     <Compile Include="Order.cs" />
     <Compile Include="OverseaServiceItem.cs" />
