@@ -18,10 +18,11 @@
     <script src="~/bower_components/moment/min/moment.min.js"></script>
     <script src="~/bower_components/moment/locale/zh-cn.js"></script>
     <script src="~/bower_components/underscore/underscore-min.js"></script>
+    <script src="http://cdn.bootcss.com/jquery.form/3.20/jquery.form.min.js"></script>
     <script src="~/js/jquery.history.js"></script>
     <script src="~/js/common.js"></script>
     <script src="~/js/main.js"></script>
-    <script src="~/js/dropDownJson.js"></script>
+    @* <script src="~/js/dropDownJson.js"></script>*@
     <!--表单验证-->
     <script src="~/bower_components/jquery-validation/dist/jquery.validate.min.js"></script>
     <script src="~/bower_components/jquery-validation/src/localization/messages_zh.js"></script>
@@ -45,13 +46,26 @@
     <!--***header***-->
     <div class="hNav2">
         <div class="userMenu">
-            <img src="/images/user.png">
-            @ViewData["UserName"]
+            <dl class="exchr">
+                <dd class="cn">
+                    <img src="/images/user.png">
+                    <label>@ViewData["UserName"]</label>
+                    <ul class="exchrSub" style="left: 1152.84px; display: none;">
+                        <li>
+                            <img src="/images/icon/ic_user_info.png">客户信息</li>
+                        <li id="rempwdbtn">
+                            <img src="/images/icon/ic_password.png">修改密码</li>
+                        <li>
+                            <img src="/images/icon/ic_exit.png">退出</li>
+                    </ul>
+                </dd>
+            </dl>
         </div>
         <a class="wecTips">
             <img src="/images/logo_c.png">
         </a>
     </div>
+
     <!--***header***-->
     <!--Progress Bar-->
     <div class="progressbar_bg">
@@ -95,7 +109,66 @@
             </div>
         </div>
     </div>
+
     <!--content-->
+    <!--悬浮客户评分-->
+    <div class="scorebtn">
+    </div>
+    <div class="m-mask" id="j-mask" style="display: none;"></div>
+    <div class="m-calc" id="j-score" style="display: none;">
+        <div class="mt"><span>用户评分</span><a href="javascript:void(0);" class="clsBtn cancelSbtn">X</a></div>
+        <div class="mn">
+            <div class="socre_bg" style="height: 100px;">
+            </div>
+            <form id="scoreForm" action="" method="get">
+                <ul class="frmbx" id="ul_score">
+                    <li class="row_score clearfix">
+                        <label for="textfield" class="tt_score">服务评分</label>
+                        <img src="/images/icon/ic_red_f.png" class="face">
+                        <div id="star_1" class="star" style="float: right; margin-right: 160px; cursor: pointer; width: 140px;">
+                            <img src="/images/icon/ic_gray.png" alt="1" title="1">&nbsp;<img src="/images/icon/ic_gray.png" alt="2" title="2">&nbsp;<img src="/images/icon/ic_gray.png" alt="3" title="3">&nbsp;<img src="/images/icon/ic_gray.png" alt="4" title="4">&nbsp;<img src="/images/icon/ic_gray.png" alt="5" title="5"><input type="hidden" name="score">
+                        </div>
+                        <div id="result_1" class="result" style="display: none;"></div>
+                    </li>
+                    <li class="row_score clearfix">
+                        <label for="textfield" class="tt_score">翻译评分</label>
+                        <img src="/images/icon/ic_red_f.png" class="face">
+                        <div id="star_2" style="float: right; margin-right: 160px; cursor: pointer; width: 140px;">
+                            <img src="/images/icon/ic_gray.png" alt="1" title="1">&nbsp;<img src="/images/icon/ic_gray.png" alt="2" title="2">&nbsp;<img src="/images/icon/ic_gray.png" alt="3" title="3">&nbsp;<img src="/images/icon/ic_gray.png" alt="4" title="4">&nbsp;<img src="/images/icon/ic_gray.png" alt="5" title="5"><input type="hidden" name="score">
+                        </div>
+                        <div id="result_2" class="result" style="display: none;"></div>
+                    </li>
+                    <li class="row_score clearfix">
+                        <label for="textfield" class="tt_score">预订评分</label>
+                        <img src="/images/icon/ic_red_f.png" class="face">
+                        <div id="star_3" style="float: right; margin-right: 160px; cursor: pointer; width: 140px;">
+                            <img src="/images/icon/ic_gray.png" alt="1" title="1">&nbsp;<img src="/images/icon/ic_gray.png" alt="2" title="2">&nbsp;<img src="/images/icon/ic_gray.png" alt="3" title="3">&nbsp;<img src="/images/icon/ic_gray.png" alt="4" title="4">&nbsp;<img src="/images/icon/ic_gray.png" alt="5" title="5"><input type="hidden" name="score">
+                        </div>
+                        <div id="result_3" class="result" style="display: none;"></div>
+                    </li>
+                    <li class="row_score clearfix">
+                        <label for="textfield" class="tt_score">签证评分</label>
+                        <img src="/images/icon/ic_red_f.png" class="face">
+                        <div id="star_4" style="float: right; margin-right: 160px; cursor: pointer; width: 140px;">
+                            <img src="/images/icon/ic_gray.png" alt="1" title="1">&nbsp;<img src="/images/icon/ic_gray.png" alt="2" title="2">&nbsp;<img src="/images/icon/ic_gray.png" alt="3" title="3">&nbsp;<img src="/images/icon/ic_gray.png" alt="4" title="4">&nbsp;<img src="/images/icon/ic_gray.png" alt="5" title="5"><input type="hidden" name="score">
+                        </div>
+                        <div id="result_4" class="result" style="display: none;"></div>
+                    </li>
+                    <li class="row_score clearfix">
+                        <label for="textfield" class="tt_score">预约评分</label>
+                        <img src="/images/icon/ic_red_f.png" class="face">
+                        <div id="star_5" style="float: right; margin-right: 160px; cursor: pointer; width: 140px;">
+                            <img src="/images/icon/ic_gray.png" alt="1" title="1">&nbsp;<img src="/images/icon/ic_gray.png" alt="2" title="2">&nbsp;<img src="/images/icon/ic_gray.png" alt="3" title="3">&nbsp;<img src="/images/icon/ic_gray.png" alt="4" title="4">&nbsp;<img src="/images/icon/ic_gray.png" alt="5" title="5"><input type="hidden" name="score">
+                        </div>
+                        <div id="result_5" class="result" style="display: none;"></div>
+                    </li>
+                </ul>
+                <div class="div_sub" style="text-align: center; width: 500px;">
+                    <button type="button" class="btn_blue" style="width: 120px;" id="btn_score">确认并提交</button>
+                </div>
+            </form>
+        </div>
+    </div>
     <!--***footer***-->
     <div class="g-ft" style="background-color: #efefef; margin: 0px; color: #a8a8a8; padding-top: 15px; height: 15px;">
         <div class="clearfix">

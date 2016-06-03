@@ -12,6 +12,7 @@ var HistoryInit = function () {
         var indexDiv = $('.usrBd .usrSubMenu li a[index=' + index + ']');
         var bgclass = indexDiv.attr('bgclass');
         var url = indexDiv.attr('url');
+
         if (url) {
             $('.usrBd .usrMn').load('/' + url);
         }

@@ -4,7 +4,7 @@
     医生留言页
 </div>
 <div>
-    <img src="images/row_line.png">
+    <img src="/images/row_line.png">
 </div>
 <div class="queslist">
     @foreach (var item in @Model.Qas)
@@ -38,22 +38,26 @@
     }
 
 </div>
-@using (Html.BeginForm("Other", "CreateQA", FormMethod.Post, new { id = "subcontent", @class = "subcontent", novalidate = "novalidate" }))
-{
-    <textarea id="Question" class="text_box" contenteditable="true" value="@Model.Question" placeholder="请留言"></textarea>
+<form action="/Other/CreateQA" class="subcontent" id="subcontent" method="post" novalidate="novalidate" onsubmit="return check()">
+    <textarea id="Question" class="text_box" contenteditable="true" name="Question" placeholder="请留言"></textarea>
     <div style="text-align: right;">
         <button class="btn_blue" type="submit" id="btnSubmit">提交</button>
     </div>
-}
+</form>
+<script src="~/js/template.js"></script>
 <script>
-    $('#Question').keydown(function (event) {
 
-        if (event.currentTarget.value) {
-            $('#btnSubmit').removeAttr('disabled');
+    function check() {
+        var text = $('.text_box').val();
+        if (!text) {
+            logger.error('请输入内容');
+            return false;
         }
-        else {
-            $('#btnSubmit').attr('disabled', 'disabled');
-        }
+        return true;
+    }
+    $(function () {
+        $("#subcontent").ajaxForm(formOptions);
+
     })
 </script>
 @*<form class="subcontent" action="" method="post" novalidate="novalidate">

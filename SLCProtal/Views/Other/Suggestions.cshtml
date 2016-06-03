@@ -1,18 +1,17 @@
 ﻿@model SLCProtal.Models.Other.SuggestionModel
 
-
 <div class="flighMn">
     投诉建议
 </div>
 <div>
-    <img src="images/row_line.png">
+    <img src="/images/row_line.png">
 </div>
-@using (Html.BeginForm("Other", "CreateQA", FormMethod.Post, new { id = "sugg_content", @class = "sugg_content", novalidate = "novalidate", onsubmit = "return check()" }))
-{
 
-    <select class="sugg_sel" value ="@Model.Type" down="suggDown">
+<form action="/Other/CreateSuggestion" class="sugg_content" id="sugg_content" method="post" novalidate="novalidate" onsubmit="return check()">
+
+    <select class="sugg_sel" name="Type" value="1" down="suggDown">
     </select>
-    <textarea class="sugg_text" placeholder="投诉/建议" value="@Model.Content"></textarea>
+    <textarea class="sugg_text" name="Content" placeholder="投诉/建议" value=""></textarea>
 
     <div class="sugg_mess">
         盛诺一家致力于海外医疗服务，您的反馈和建议是我们不断提高服务品质的动力，我们会第一时间由品质监管部门妥善处理您的需求！
@@ -24,8 +23,9 @@
         &nbsp;&nbsp;&nbsp;
                         <button type="reset" class="btn_blue">清除</button>
     </div>
-}
-
+</form>
+<script src="~/js/dropDownJson.js"></script>
+<script src="~/js/template.js"></script>
 <script>
     //清除
     function check() {
@@ -36,5 +36,10 @@
         }
         return true;
     }
+
+    $(function () {
+        $("#sugg_content").ajaxForm(formOptions);
+
+    })
 
 </script>

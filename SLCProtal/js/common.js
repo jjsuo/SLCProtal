@@ -160,3 +160,16 @@ var MenuControll = function () {
 }
 common.getTemp(common.GetRequest());
 logger.init();
+
+//弹层JS
+var score = function () {
+    $('.scorebtn').click(function () {
+        $('#j-mask').fadeIn(100, function () {
+            $('#j-score').show(0);
+        });
+    });
+}
+$(function () {
+
+    score();
+})
