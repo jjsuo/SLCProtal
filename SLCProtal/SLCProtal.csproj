@@ -1027,13 +1027,12 @@
     <Content Include="Views\Service\Reservation.cshtml" />
     <Content Include="Views\Service\OverseasService.cshtml" />
     <None Include="Views\Service\PickUps.cshtml" />
-<<<<<<< HEAD
-=======
+
     <Content Include="Views\Service\Scores.cshtml" />
     <Content Include="Views\Service\ServiceInfo.cshtml" />
     <Content Include="Views\Service\Translation.cshtml" />
     <Content Include="Views\Service\Visa.cshtml" />
->>>>>>> origin/master
+
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
