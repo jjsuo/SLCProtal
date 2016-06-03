@@ -9,7 +9,7 @@ using System.Web.Mvc;
 
 namespace SLCProtal.Controllers
 {
-    public class ServiceController : Controller
+    public class ServiceController : AuthenticationController
     {
         //
         // GET: /Service/

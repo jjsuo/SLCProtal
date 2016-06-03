@@ -45,9 +45,9 @@ namespace SLCProtal.Common
         {
             get
             {
-                BizCase bc = new BizCase();
-                bc.BizCaseId = "7675b10b-f70a-e611-81af-000c29de43e6";
-                return bc;
+                //BizCase bc = new BizCase();
+                //bc.BizCaseId = "7675b10b-f70a-e611-81af-000c29de43e6";
+                //return bc;
                 if (HttpContext.Current.Session["BizCaseInfo"] == null)
                 {
                     return null;

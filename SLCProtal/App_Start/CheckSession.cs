@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
+using SLCProtal.Common;
 
 namespace SLCProtal.App_Start
 {
@@ -12,12 +13,12 @@ namespace SLCProtal.App_Start
     {
         public void OnAuthorization(AuthorizationContext filterContext)
         {
-            var account = filterContext.HttpContext.Session["AccountInfo"];
-            var bizCase = filterContext.HttpContext.Session["BizCaseInfo"];
+            var account = SessionManage.AccountInfo;
+            var bizCase = SessionManage.BizCaseInfo;
             //When user has not login yet
             if (account == null || bizCase == null)
             {
-                var redirectUrl = FormsAuthentication.LoginUrl + "?RedirectPath=" +
+                var redirectUrl = FormsAuthentication.LoginUrl + "?RedirectUrl=" +
                                   filterContext.HttpContext.Request.Url;
                 if (!filterContext.HttpContext.Request.IsAjaxRequest())
                 {

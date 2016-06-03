@@ -9,7 +9,7 @@ using SLCProtal.Models.Other;
 
 namespace SLCProtal.Controllers
 {
-    public class OtherController : Controller
+    public class OtherController : AuthenticationController
     {
         //
         // GET: /Other/

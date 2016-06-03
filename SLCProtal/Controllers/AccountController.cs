@@ -100,6 +100,14 @@ namespace SLCProtal.Controllers
         }
 
 
+        public ActionResult Logout()
+        {
+            HttpContext.Session.Abandon();
+            SessionManage.Clear();
+            FormsAuthentication.SignOut();
+            return RedirectToAction("Login");
+        }
+
         //
         // GET: /Account/
         [HttpPost]
