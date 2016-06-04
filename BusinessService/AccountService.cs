@@ -92,16 +92,16 @@ namespace BusinessService
         /// <summary>
         /// 获取患者信息
         /// </summary>
-        /// <param name="userId"></param>
+        /// <param name="bizCaseId"></param>
         /// <returns></returns>
-        public SickPeople GetSickPeople(string userId)
+        public SickPeople GetSickPeople(string bizCaseId)
         {
             ConvertClass<SickPeople> convertClass = new ConvertClass<SickPeople>();
             SickPeople sickPeople = null;
 
 
             DataSet st = SqlHelper.ExecuteDataset(SqlConnect.CRM_ADDON_ConnectString, CommandType.StoredProcedure,
-                "usp_protal_GetSickPeople", new SqlParameter("@userId", userId));
+                "usp_protal_GetSickPeople", new SqlParameter("@bizCaseId", bizCaseId));
             if (st.Tables[0].Rows.Count > 0)
             {
                 sickPeople = convertClass.ToT(st.Tables[0].Rows[0]);

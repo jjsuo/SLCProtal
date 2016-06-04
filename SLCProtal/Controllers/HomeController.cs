@@ -15,7 +15,7 @@ namespace SLCProtal.Controllers
             ServiceItemService serviceItemService = new ServiceItemService();
             HomeModel home = new HomeModel();
             string message = string.Empty;
-
+            ViewData["UserName"] = SessionManage.AccountInfo.UserName;
             home = GetHomeModel(out message);
 
             MainModel main = new MainModel();
