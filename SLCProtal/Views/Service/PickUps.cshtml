@@ -3,130 +3,55 @@
 
 <!--接机-->
 <div class="flighMn">
-    接机
+    @ViewData["Type"] == 1 ? "接机" :"送机"
 </div>
 <div>
-    <img src="images/row_line.png">
+    <img src="/images/row_line.png">
 </div>
 <div>
-    <table class="tabfligh">
-        <tbody>
-            <tr>
-                <td style="width: 32px;">
-                    <img src="images/icon/address_p.png"></td>
-                <td>
-                    <input type="text" class="txtfligh" placeholder="接洽地点"></td>
-                <td style="width: 32px;">
-                    <img src="images/icon/address.png"></td>
-                <td>
-                    <input type="text" class="txtfligh" placeholder="接送地点"></td>
-                <td style="width: 32px;">
-                    <img src="images/icon/time_1.png"></td>
-                <td>
-                    <input type="text" class="txtfligh" placeholder="预订时间"></td>
-            </tr>
-            <tr>
-                <td>
-                    <img src="images/icon/person.png"></td>
-                <td>
-                    <input type="text" class="txtfligh" placeholder="接送人"></td>
-                <td>
-                    <img src="images/icon/phone.png"></td>
-                <td>
-                    <input type="text" class="txtfligh" placeholder="联系方式"></td>
-                <td>
-                    <img src="images/icon/status.png"></td>
-                <td>
-                    <input type="text" class="txtfligh" placeholder="服务状态"></td>
-            </tr>
+    @foreach (var item in @Model.PicklList)
+    {
+        <table class="tabfligh">
+            <tbody>
+                <tr>
+                    <td style="width: 32px;">
+                        <img src="/images/icon/address_p.png"></td>
+                    <td>
+                        <input type="text" class="txtfligh" placeholder="接洽地点" value="@item.pickaddress"></td>
+                    <td style="width: 32px;">
+                        <img src="/images/icon/address.png"></td>
+                    <td>
+                        <input type="text" class="txtfligh" placeholder="接送地点" value="@item.sendaddress"></td>
+                    <td style="width: 32px;">
+                        <img src="/images/icon/time_1.png"></td>
+                    <td>
+                        <input type="text" class="txtfligh" placeholder="预订时间" value="@item.ordertime"></td>
+                </tr>
+                <tr>
+                    <td>
+                        <img src="/images/icon/person.png"></td>
+                    <td>
+                        <input type="text" class="txtfligh" placeholder="接送人" value="@item.pickperson"></td>
+                    <td>
+                        <img src="/images/icon/phone.png"></td>
+                    <td>
+                        <input type="text" class="txtfligh" placeholder="联系方式"  value="@item.pickphone></td>
+                    <td>
+                        <img src="/images/icon/status.png"></td>
+                    <td>
+                        <input type="text" class="txtfligh" placeholder="服务状态" value="@item.pickstate"></td>
+                </tr>
 
-        </tbody>
-    </table>
+            </tbody>
+        </table>
+    }
 
-</div>
-<!--送机-->
-<div class="flighMn">
-    送机
-</div>
-<div>
-    <img src="images/row_line.png">
-</div>
-<div>
-    <table class="tabfligh">
-        <tbody>
-            <tr>
-                <td style="width: 32px;">
-                    <img src="images/icon/address_p.png"></td>
-                <td>
-                    <input type="text" class="txtfligh" placeholder="接洽地点"></td>
-                <td style="width: 32px;">
-                    <img src="images/icon/address.png"></td>
-                <td>
-                    <input type="text" class="txtfligh" placeholder="接送地点"></td>
-                <td style="width: 32px;">
-                    <img src="images/icon/time_1.png"></td>
-                <td>
-                    <input type="text" class="txtfligh" placeholder="预订时间"></td>
-            </tr>
-            <tr>
-                <td>
-                    <img src="images/icon/person.png"></td>
-                <td>
-                    <input type="text" class="txtfligh" placeholder="接送人"></td>
-                <td>
-                    <img src="images/icon/phone.png"></td>
-                <td>
-                    <input type="text" class="txtfligh" placeholder="联系方式"></td>
-                <td>
-                    <img src="images/icon/status.png"></td>
-                <td>
-                    <input type="text" class="txtfligh" placeholder="服务状态"></td>
-            </tr>
-
-        </tbody>
-    </table>
 
 </div>
-<!--接机-->
-<div class="flighMn">
-    接机
-</div>
-<div>
-    <img src="images/row_line.png">
-</div>
-<div>
-    <table class="tabfligh">
-        <tbody>
-            <tr>
-                <td style="width: 32px;">
-                    <img src="images/icon/address_p.png"></td>
-                <td>
-                    <input type="text" class="txtfligh" placeholder="接洽地点"></td>
-                <td style="width: 32px;">
-                    <img src="images/icon/address.png"></td>
-                <td>
-                    <input type="text" class="txtfligh" placeholder="接送地点"></td>
-                <td style="width: 32px;">
-                    <img src="images/icon/time_1.png"></td>
-                <td>
-                    <input type="text" class="txtfligh" placeholder="预订时间"></td>
-            </tr>
-            <tr>
-                <td>
-                    <img src="images/icon/person.png"></td>
-                <td>
-                    <input type="text" class="txtfligh" placeholder="接送人"></td>
-                <td>
-                    <img src="images/icon/phone.png"></td>
-                <td>
-                    <input type="text" class="txtfligh" placeholder="联系方式"></td>
-                <td>
-                    <img src="images/icon/status.png"></td>
-                <td>
-                    <input type="text" class="txtfligh" placeholder="服务状态"></td>
-            </tr>
+<script src="~/js/template.js" type="text/javascript"></script>
+<script type="text/javascript">
+    $(function () {
+        $('.tabfligh input').attr('disabled', 'disabled');
 
-        </tbody>
-    </table>
-
-</div>
+    })
+</script>

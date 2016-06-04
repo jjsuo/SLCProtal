@@ -1,2 +1,53 @@
 ﻿@model SLCProtal.Models.Service.VisaModel
 
+
+<div class="flighMn">
+    查看签证
+</div>
+<div>
+    <img src="/images/row_line.png">
+</div>
+<div>
+    @foreach (var item in Model.Visas)
+    {
+         <table class="tabfligh">
+        <tbody>
+            <tr>
+                <td>
+                    <img src="/images/icon/ic_material.png"></td>
+                <td>
+                    <input type="text" class="txt_history" value="@item.ZLStatus" disabled="" style="width: 300px;"></td>
+            </tr>
+            <tr>
+                <td>
+                    <img src="/images/icon/ic_visatime.png"></td>
+
+                <td>
+                    <input type="text" class="txt_history" value="@item.Time"  disabled="" style="width: 300px;"></td>
+            </tr>
+            <tr>
+                <td>
+                    <img src="/images/icon/ic_visaadd.png"></td>
+                <td>
+                    <input type="text" class="txt_history" value="@item.Address" disabled="" style="width: 300px;"></td>
+            </tr>
+            <tr>
+                <td>
+                    <img src="/images/icon/ic_visauser.png"></td>
+                <td>
+                    <input type="text" class="txt_history" value="@item.VisaUserIdName" disabled="" style="width: 300px;"></td>
+            </tr>
+            <tr>
+                <td>
+                    <img src="/images/icon/ic_visastatus.png"></td>
+                <td>
+                    <input type="text" class="txt_history" value="@item.VisaStatus" disabled="" style="width: 300px;"></td>
+            </tr>
+
+        </tbody>
+    </table>
+    }
+   
+
+</div>
+<script src="~/js/template.js"></script>

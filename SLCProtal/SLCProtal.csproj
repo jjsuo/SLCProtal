@@ -772,6 +772,7 @@
     <Content Include="js\dropDownJson.js" />
     <Content Include="js\index.js" />
     <Content Include="js\jquery.history.js" />
+    <Content Include="js\jquery.raty.js" />
     <Content Include="js\main.js" />
     <Content Include="js\template.js" />
     <Content Include="plugins\debug\debug.js" />

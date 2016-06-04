@@ -1,2 +1,46 @@
 ﻿@model SLCProtal.Models.Service.TransModel
 
+
+<div class="flighMn">
+    查看翻译
+</div>
+<div>
+    <img src="/images/row_line.png">
+</div>
+<div>
+    @foreach (var item in Model.Transes)
+    { <table class="tabfligh">
+        <tbody>
+            <tr>
+                <td>
+                    <img src="/images/icon/ic_tr_user.png"></td>
+                <td>
+                    <input type="text" class="txt_history" value="@item.TranslateuseridName"  disabled="" style="width: 300px;"></td>
+            </tr>
+            <tr>
+                <td>
+                    <img src="/images/icon/ic_e_time.png"></td>
+
+                <td>
+                    <input type="text" class="txt_history" value="@item.StartTime" disabled="" style="width: 300px;"></td>
+            </tr>
+            <tr>
+                <td>
+                    <img src="/images/icon/ic_s_time.png"></td>
+                <td>
+                    <input type="text" class="txt_history" value="@item.EndTime" disabled="" style="width: 300px;"></td>
+            </tr>
+            <tr>
+                <td>
+                    <img src="/images/icon/ic_tr_status.png"></td>
+                <td>
+                    <input type="text" class="txt_history" value="@item.Translatestatus" disabled="" style="width: 300px;"></td>
+            </tr>
+        </tbody>
+    </table>
+        
+    }
+   
+
+</div>
+<script src="~/js/template.js"></script>

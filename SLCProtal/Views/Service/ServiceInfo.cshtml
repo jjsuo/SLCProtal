@@ -1,2 +1,53 @@
 ﻿@model SLCProtal.Models.Service.ServiceInfoModel
 
+
+<div class="flighMn">
+    服务信息
+</div>
+<div>
+    <img src="/images/row_line.png">
+</div>
+<div class="use-tab" style="position: static; padding-top: 20px;">
+    <table>
+        <thead>
+            <tr>
+                <th style="width: 350px;">服务项目</th>
+                <th style="width: 120px;">服务内容</th>
+                <th style="width: 120px;">单位计算</th>
+            </tr>
+        </thead>
+    </table>
+    <div>
+        <table>
+            <tbody>
+                @foreach (var item in Model.ServiceItems)
+                {   <tr>
+                    <td style="width: 350px;">@item.ServiceName</td>
+                    <td style="width: 120px;">@item.ServiceContent</td>
+                    <td style="width: 120px;">@item.ServiceTime</td>
+                </tr>
+                    
+                }
+
+
+            </tbody>
+        </table>
+    </div>
+</div>
+<div class="historyser">
+    @foreach (var item in Model.BizCases)
+    {
+
+    }
+    @for (int i = 0; i < Model.BizCases.Count(); i++)
+    {
+        <a href="javascript:void(0);" class="a_history">@Convert.ToDateTime(Model.BizCases[i].Createdon).ToString("yyyy年MM月 ") + @Model.BizCases[i].OwnerId</a>
+        if (i < Model.BizCases.Count() - 1)
+        { 
+        <span>|</span>
+        }
+
+    }
+
+</div>
+<script src="~/js/template.js"></script>
