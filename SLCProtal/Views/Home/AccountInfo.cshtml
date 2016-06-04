@@ -1,4 +1,4 @@
-﻿@*@model SLCProtal.Models.Home.AccountInfoModel
+﻿@model SLCProtal.Models.Home.AccountInfoModel
 
 <div class="m-calc" id="j-user">
     <div class="mt"><span>客户信息</span><a href="javascript:void(0);" class="clsBtn cancelUbtn">X</a></div>
@@ -10,25 +10,58 @@
                 </div>
                 <div>
                     <label class="userlab">姓名</label>
-                    <input type="text" disabled="" value="@Model.Account.UserName" class="txt_user">
+                    <input type="text" disabled="" value="@Model.Sick.UserName" class="txt_user">
                 </div>
                 <div>
                     <label class="userlab">性别</label>
                     <div class="userradio">
-                        <label>
-                        @Html.RadioButtonFor(model => Model.Account.Gendercode, 0, new { name = "Gendercode" })
+
+                        @Html.RadioButtonFor(model => Model.Sick.Gendercode, 0, new { name = "Gendercode" })
                         男
-                                @Html.RadioButtonFor(model => Model.Account.Gendercode, 1, new { name = "Gendercode" })
+                                @Html.RadioButtonFor(model => Model.Sick.Gendercode, 1, new { name = "Gendercode" })
                         女
                     </div>
                 </div>
                 <div>
                     <label class="userlab">证件类型</label>
-                    <input type="text" disabled="" value="@Model.Account.Certype" class="txt_user">
+                    <input type="text" disabled="" value="@Model.Sick.Certype" class="txt_user">
                 </div>
                 <div>
                     <label class="userlab">证件号</label>
-                    <input type="text" disabled="" value="@Model.Account.Governmentid" class="txt_user">
+                    <input type="text" disabled="" value="@Model.Sick.Governmentid" class="txt_user">
+                </div>
+                <div>
+                    <label class="userlab">联系电话1</label>
+                    <input type="text" disabled="" value="@Model.Sick.Phone" class="txt_user">
+                </div>
+                <div>
+                    <label class="userlab">联系电话2</label>
+                    <input type="text" disabled="" value="@Model.Sick.Phone1" class="txt_user">
+                </div>
+                <div>
+                    <label class="userlab">疾病名称</label>
+                    <input type="text" disabled="" value="@Model.Sick.SickName" class="txt_user">
+                </div>
+            </div>
+            <div class="userdiv">
+                <div>
+                    <label class="usertitle">咨询者信息</label>
+                </div>
+                <div>
+                    <label class="userlab">姓名</label>
+                    <input type="text" disabled="" value="@Model.Account.UserName" class="txt_user">
+                </div>
+                <div>
+                    <label class="userlab">性别</label>
+                    <div class="userradio">
+
+
+                        @Html.RadioButtonFor(model => Model.Account.Gendercode, 0, new { name = "Gendercode" })
+                        男
+                                @Html.RadioButtonFor(model => Model.Account.Gendercode, 1, new { name = "Gendercode" })
+                        女
+                     
+                    </div>
                 </div>
                 <div>
                     <label class="userlab">联系电话1</label>
@@ -39,117 +72,22 @@
                     <input type="text" disabled="" value="@Model.Account.Phone1" class="txt_user">
                 </div>
                 <div>
-                    <label class="userlab">疾病名称</label>
-                    <input type="text" disabled="" value="@Model.Account.Governmentid" class="txt_user">
-                </div>
-            </div>
-            <div class="userdiv">
-                <div>
-                    <label class="usertitle">咨询者信息</label>
-                </div>
-                <div>
-                    <label class="userlab">姓名</label>
-                    <input type="text" disabled="" value="刘德华" class="txt_user">
-                </div>
-                <div>
-                    <label class="userlab">性别</label>
-                    <div class="userradio">
-                        <label>
-                            <input type="radio" checked="" value="男">男</label>
-                    </div>
-                </div>
-                <div>
-                    <label class="userlab">联系电话1</label>
-                    <input type="text" disabled="" value="13800138000" class="txt_user">
-                </div>
-                <div>
-                    <label class="userlab">联系电话2</label>
-                    <input type="text" disabled="" value="13800138000" class="txt_user">
-                </div>
-                <div>
                     <label class="userlab">登录名</label>
-                    <input type="text" disabled="" value="13800138000" class="txt_user">
-                </div>
-            </div>
-        </div>
-    </div>
-</div>*@
-
-<div class="m-calc" id="j-user" style="display: none;">
-    <div class="mt"><span>客户信息</span><a href="javascript:void(0);" class="clsBtn cancelUbtn">X</a></div>
-    <div class="mn">
-        <div class="report-fm">
-            <div class="userdiv">
-                <div>
-                    <label class="usertitle">患者信息</label>
-                </div>
-                <div>
-                    <label class="userlab">姓名</label>
-                    <input type="text" disabled="" value="刘德华" class="txt_user">
-                </div>
-                <div>
-                    <label class="userlab">性别</label>
-                    <div class="userradio">
-                        <label>
-                            <input type="radio" checked="" value="男">男</label>
-                    </div>
-                </div>
-                <div>
-                    <label class="userlab">证件类型</label>
-                    <input type="text" disabled="" value="身份证" class="txt_user">
-                </div>
-                <div>
-                    <label class="userlab">证件号</label>
-                    <input type="text" disabled="" value="12023019870122983X" class="txt_user">
-                </div>
-                <div>
-                    <label class="userlab">联系电话1</label>
-                    <input type="text" disabled="" value="13800138000" class="txt_user">
-                </div>
-                <div>
-                    <label class="userlab">联系电话2</label>
-                    <input type="text" disabled="" value="13800138000" class="txt_user">
-                </div>
-                <div>
-                    <label class="userlab">疾病名称</label>
-                    <input type="text" disabled="" value="右膝关节十字韧带断裂" class="txt_user">
-                </div>
-            </div>
-            <div class="userdiv">
-                <div>
-                    <label class="usertitle">咨询者信息</label>
-                </div>
-                <div>
-                    <label class="userlab">姓名</label>
-                    <input type="text" disabled="" value="刘德华" class="txt_user">
-                </div>
-                <div>
-                    <label class="userlab">性别</label>
-                    <div class="userradio">
-                        <label>
-                            <input type="radio" checked="" value="男">男</label>
-                    </div>
-                </div>
-                <div>
-                    <label class="userlab">联系电话1</label>
-                    <input type="text" disabled="" value="13800138000" class="txt_user">
-                </div>
-                <div>
-                    <label class="userlab">联系电话2</label>
-                    <input type="text" disabled="" value="13800138000" class="txt_user">
-                </div>
-                <div>
-                    <label class="userlab">登录名</label>
-                    <input type="text" disabled="" value="13800138000" class="txt_user">
+                    <input type="text" disabled="" value="@Model.Account.LoginName" class="txt_user">
                 </div>
             </div>
         </div>
     </div>
 </div>
+
 <script>
     $('#j-user .cancelUbtn').click(function () {
         $('#j-user').fadeOut(100, function () {
             $('#j-mask').hide();
         });
     });
+    $(function () {
+        $('input').attr('disabled', 'disabled');
+
+    })
 </script>

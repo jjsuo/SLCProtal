@@ -1,6 +1,10 @@
 ﻿@model SLCProtal.Models.Service.ServiceInfoModel
 
-
+<!--[if IE 7]>
+      <style>
+         #j-history .col-md-2{width:9.66% !important}
+      </style>
+     <![endif]-->
 <div class="flighMn">
     服务信息
 </div>
@@ -41,7 +45,7 @@
     }
     @for (int i = 0; i < Model.BizCases.Count(); i++)
     {
-        <a href="javascript:void(0);" class="a_history">@Convert.ToDateTime(Model.BizCases[i].Createdon).ToString("yyyy年MM月 ") + @Model.BizCases[i].OwnerId</a>
+        <a href="javascript:void(0);" class="a_history" bizcaseid="@Model.BizCases[i].BizCaseId">@Convert.ToDateTime(Model.BizCases[i].StartTime).ToString("yyyy年MM月 ")  @Model.BizCases[i].OwnerIdName</a>
         if (i < Model.BizCases.Count() - 1)
         { 
         <span>|</span>
@@ -50,4 +54,19 @@
     }
 
 </div>
+@*历史服务*@
+<div id="j-historyHtml">
+</div>
 <script src="~/js/template.js"></script>
+<script>
+    $('.historyser .a_history').click(function (event) {
+        debugger;
+        var bizcaseid = $(event.currentTarget).attr('bizcaseid');
+        $('#j-historyHtml').load('/Service/HistoryBizCase', { bizCaseId: bizcaseid }, function () {
+            $('#j-mask').fadeIn(100, function () {
+                $('#j-history').show(0);
+            });
+        })
+
+    });
+</script>

@@ -1,2 +1,79 @@
 ﻿@model SLCProtal.Models.Service.HistroyBizCaseModel
 
+<div class="m-calc" id="j-history" style="display: block;">
+    <div class="mt"><span>历史服务</span><a href="javascript:void(0);" class="clsBtn cancelHbtn">X</a></div>
+    <div class="mn">
+        <div class="report-fm">
+            <div class="form-group">
+                <label class="col-md-2 control-label">开始时间：</label>
+                <div class="col-md-4">
+                    <input type="text" name="computer_weight" disabled="" value="@Model.BizCaseDetail.StartTime" class="txt_history">
+                </div>
+                <label class="col-md-2 control-label">负责医生：</label>
+                <div class="col-md-4">
+                    <input type="text" name="computer_weight" disabled="" value="@Model.BizCaseDetail.OwnerIdName" class="txt_history">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-md-2 control-label">患者姓名：</label>
+                <div class="col-md-4">
+                    <input type="text" name="computer_weight" disabled="" value="@Model.BizCaseDetail.SickPeople" class="txt_history">
+                </div>
+                <label class="col-md-2 control-label">疾病名称：</label>
+                <div class="col-md-4">
+                    <input type="text" name="computer_weight" disabled="" value="@Model.BizCaseDetail.SickName" class="txt_history">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-md-2 control-label">国家：</label>
+                <div class="col-md-4">
+                    <input type="text" name="computer_weight" disabled="" value="@Model.BizCaseDetail.Country" class="txt_history">
+                </div>
+                <label class="col-md-2 control-label">医院：</label>
+                <div class="col-md-4">
+                    <input type="text" name="computer_weight" disabled="" value="@Model.BizCaseDetail.Hostipal" class="txt_history">
+                </div>
+            </div>
+        </div>
+        <div class="historytab">
+            <table>
+                <thead>
+                    <tr>
+                        <th style="width: 350px;">服务项目</th>
+                        <th style="width: 120px;">服务内容</th>
+                        <th style="width: 120px;">单位计算</th>
+                    </tr>
+                </thead>
+            </table>
+            <div>
+                <table>
+                    <tbody>
+                        @foreach (var item in Model.ServiceItems)
+                        {  
+                            <tr>
+                                <td style="width: 350px;">@item.ServiceName</td>
+                                <td style="width: 120px;">@item.ServiceContent</td>
+                                <td style="width: 120px;">@item.ServiceTime</td>
+                            </tr>
+                        }
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <form id="calcForm" action="" method="get">
+            <div class="div_his_sub">
+                <button type="reset" class="btn_blue cancelHbtn" style="width: 120px;">关闭</button>
+            </div>
+        </form>
+    </div>
+</div>
+<script>
+    $('#j-history .cancelHbtn').click(function () {
+        $('#j-history').fadeOut(100, function () {
+            $('#j-mask').hide();
+        });
+    });
+</script>

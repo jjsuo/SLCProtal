@@ -183,19 +183,7 @@ function exchrHover() {
         });
     });
 
-
-
-
-    $('.a_history').click(function () {
-        $('#j-mask').fadeIn(100, function () {
-            $('#j-history').show(0);
-        });
-    });
-    $('#j-history .cancelHbtn').click(function () {
-        $('#j-history').fadeOut(100, function () {
-            $('#j-mask').hide();
-        });
-    });
+  
 
     $('#userinfo').click(function () {
         $('#j-mask').fadeIn(100, function () {
