@@ -150,6 +150,7 @@ namespace BusinessService
         {
             Entity contact=new Entity("contact");
             contact["slc_password"] = newPassword;
+            contact.Id = new Guid(userid);
             CrmService.OrgService.Update(contact);
            
         }

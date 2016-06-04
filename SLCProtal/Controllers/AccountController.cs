@@ -73,8 +73,11 @@ namespace SLCProtal.Controllers
             }
             else
             {
-                Account account = new Account() { UserId = message };
-                SessionManage.SetAccountInfo(account);
+                if (SessionManage.AccountInfo == null)
+                {
+                    Account account = new Account() {UserId = message};
+                    SessionManage.SetAccountInfo(account);
+                }
                 Session["code"] = code;
                 return Json(new {result = "S"});
             }
