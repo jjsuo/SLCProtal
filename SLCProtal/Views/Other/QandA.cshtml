@@ -56,6 +56,13 @@
         return true;
     }
     $(function () {
+        var option = {
+            submitsuccess: function () {
+
+                $('.usrBd .usrSubMenu a.act').trigger('click');
+            }
+        }
+        $.extend(formOptions, option);
         $("#subcontent").ajaxForm(formOptions);
 
     })

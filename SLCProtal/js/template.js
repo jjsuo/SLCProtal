@@ -10,7 +10,9 @@ var formOptions = {
             logger.info("表单正在提交中...");
             return false;
         }
-
+        layer.load(2, {
+            shade: [0.1, '#fff'] //0.1透明度的白色背景
+        });
         formOptions.isSubmit = !0;
     },
     clearForm: false,
@@ -34,5 +36,6 @@ var formOptions = {
     error: logger.ajaxError.bind(this),
     complete: function () {
         formOptions.isSubmit = !1;
+        layer.closeAll('loading');
     }
 };
