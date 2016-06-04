@@ -112,8 +112,8 @@ namespace BusinessService
 
                 foreach (var score in scores)
                 {
-                    entity["score" + score.Type] = score.ScoreCount.ToString();
-                    entity["createscore" + score.Type] = DateTime.Now;
+                    entity["slc_score" + score.Type] = score.ScoreCount.ToString();
+                    entity["slc_createscore" + score.Type] = DateTime.Now;
                 }
                 
                 entity.Id = new Guid(bizCaseId);

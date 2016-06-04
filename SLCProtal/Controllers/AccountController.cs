@@ -21,8 +21,9 @@ namespace SLCProtal.Controllers
         //private string _accountId = "";
 
        
-        public ActionResult ChangePassword()
+        public ActionResult ChangePassword(string phone)
         {
+            ViewData["Phone"] = phone;
             return View();
         }
          [HttpPost]
