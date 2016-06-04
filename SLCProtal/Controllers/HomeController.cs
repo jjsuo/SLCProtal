@@ -46,7 +46,7 @@ namespace SLCProtal.Controllers
             AccountInfoModel accountInfo=new AccountInfoModel();
             AccountService accountService=new AccountService();
             accountInfo.Account=accountService.GetUser(SessionManage.AccountInfo.UserId);
-            accountInfo.Sick = accountService.GetSickPeople(SessionManage.AccountInfo.UserId);
+            accountInfo.Sick = accountService.GetSickPeople(SessionManage.BizCaseInfo.BizCaseId);
             return View(accountInfo);
         }
 
