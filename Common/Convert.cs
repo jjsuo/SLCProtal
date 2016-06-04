@@ -88,6 +88,11 @@ namespace Common
                 //T 属性名称
                 string propertyName = property.Name;
 
+                if (drRow["propertyName"] == null)
+                {
+                    LogHelper.Warn(propertyName + "不属于表Table");
+                    continue;
+                }
                 string readerValue = drRow[propertyName].ToString();
 
                 //T 属性类型
