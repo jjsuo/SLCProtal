@@ -88,7 +88,7 @@ namespace Common
                 //T 属性名称
                 string propertyName = property.Name;
 
-                if (drRow["propertyName"] == null)
+                if (drRow[propertyName] == null)
                 {
                     LogHelper.Warn(propertyName + "不属于表Table");
                     continue;

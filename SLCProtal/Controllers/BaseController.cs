@@ -43,14 +43,15 @@ namespace SLCProtal.Controllers
                 //如果未定义特性，则返回到 Error View
                 if (!isDataActionResult)
                 {
-                    if (HttpContext.User.Identity.IsAuthenticated)
-                        filterContext.Result = View("Error", oHandleErrorInfo);
-                    else
-                        filterContext.Result = PartialView("Error", oHandleErrorInfo);
+                    filterContext.Result = Json(new {result = "报错了,请联系管理员" }, JsonRequestBehavior.AllowGet);
+                    //if (HttpContext.User.Identity.IsAuthenticated)
+                    //    filterContext.Result = View("Error", oHandleErrorInfo);
+                    //else
+                    //    filterContext.Result = PartialView("Error", oHandleErrorInfo);
                 }
                 else
                 {
-                    filterContext.Result = Json(new { Failed = true, Message = filterContext.Exception.Message }, JsonRequestBehavior.AllowGet);
+                    filterContext.Result = Json(new { Failed = true, result = filterContext.Exception.Message }, JsonRequestBehavior.AllowGet);
                 }
 
             }
