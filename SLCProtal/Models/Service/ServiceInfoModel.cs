@@ -8,7 +8,7 @@ namespace SLCProtal.Models.Service
 {
     public class ServiceInfoModel
     {
-        public List<BizCase> BizCases { get; set; }
+        public List<BizCaseDetail> BizCases { get; set; }
 
         public List<ServiceItem> ServiceItems { get; set; } 
     }

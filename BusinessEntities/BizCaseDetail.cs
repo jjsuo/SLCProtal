@@ -8,6 +8,8 @@ namespace BusinessEntities
 {
    public  class BizCaseDetail
     {
+       public string ContactName { get; set; }
+
        public string BizCaseId { get; set; }
        public string StartTime { get; set; }
 

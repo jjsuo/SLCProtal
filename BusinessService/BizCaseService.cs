@@ -84,10 +84,10 @@ namespace BusinessService
         /// </summary>
         /// <param name="userId"></param>
         /// <returns></returns>
-        public List<BizCase> GetBizCases(string userId)
+        public List<BizCaseDetail> GetBizCases(string userId)
         {
-            ConvertClass<BizCase> convertClass = new ConvertClass<BizCase>();
-            List<BizCase> bizCases = null;
+            ConvertClass<BizCaseDetail> convertClass = new ConvertClass<BizCaseDetail>();
+            List<BizCaseDetail> bizCases = null;
 
 
             DataSet st = SqlHelper.ExecuteDataset(SqlConnect.CRM_ADDON_ConnectString, CommandType.StoredProcedure,
