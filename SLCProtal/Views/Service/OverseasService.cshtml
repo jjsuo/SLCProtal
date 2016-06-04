@@ -1,2 +1,40 @@
 ﻿@model SLCProtal.Models.Service.OverSeaServiceItemModel
 
+<div class="flighMn">
+    海外服务
+</div>
+<div>
+    <img src="/images/row_line.png">
+</div>
+<div class="use-tab" style="position: static; padding-top: 20px;">
+    <table>
+        <thead>
+            <tr>
+                <th style="width: 120px;">服务项目</th>
+                <th style="width: 350px;">服务内容</th>
+                <th style="width: 120px;">单位计算</th>
+                <th style="width: 120px;">服务剩余</th>
+            </tr>
+        </thead>
+    </table>
+    <div>
+        <table>
+            <tbody>
+                @foreach (var item in @Model.OverseaServiceItems)
+                {  <tr>
+                    <td style="width: 120px;">@item.ServiceName</td>
+                    <td style="width: 350px;">@item.ServiceContent</td>
+                    <td style="width: 120px;">@item.ServiceTime</td>
+                    <td style="width: 120px;">@item.ServiceLeft</td>
+                </tr>
+                    
+                }
+              
+                
+            </tbody>
+        </table>
+    </div>
+
+</div>
+
+<script src="~/js/template.js"></script>

@@ -1,2 +1,186 @@
 ﻿@model dynamic
 
+<div class="m-calc" id="j-score" style="display: none;">
+    <div class="mt"><span>用户评分</span><a href="javascript:void(0);" class="clsBtn cancelSbtn">X</a></div>
+    <div class="mn">
+        <div class="socre_bg" style="height: 100px;">
+        </div>
+        <form id="scoreForm" action="/Service/Scores" method="post">
+            <ul class="frmbx" id="ul_score">
+                <li class="row_score clearfix" index="1">
+                    <label for="textfield" class="tt_score">服务评分</label>
+                    <img src="/images/icon/ic_red_f.png" class="face">
+                    <div id="star_1" class="star" style="float: right; margin-right: 160px; cursor: pointer; width: 140px;">
+                        <img src="/images/icon/ic_gray.png" alt="1" title="1">&nbsp;<img src="/images/icon/ic_gray.png" alt="2" title="2">&nbsp;<img src="/images/icon/ic_gray.png" alt="3" title="3">&nbsp;<img src="/images/icon/ic_gray.png" alt="4" title="4">&nbsp;<img src="/images/icon/ic_gray.png" alt="5" title="5"><input type="hidden" name="score">
+                    </div>
+                    <div id="result_1" class="result" style="display: none;"></div>
+                </li>
+                <li class="row_score clearfix" index="3">
+                    <label for="textfield" class="tt_score">翻译评分</label>
+                    <img src="/images/icon/ic_red_f.png" class="face">
+                    <div id="star_2" style="float: right; margin-right: 160px; cursor: pointer; width: 140px;">
+                        <img src="/images/icon/ic_gray.png" alt="1" title="1">&nbsp;<img src="/images/icon/ic_gray.png" alt="2" title="2">&nbsp;<img src="/images/icon/ic_gray.png" alt="3" title="3">&nbsp;<img src="/images/icon/ic_gray.png" alt="4" title="4">&nbsp;<img src="/images/icon/ic_gray.png" alt="5" title="5"><input type="hidden" name="score">
+                    </div>
+                    <div id="result_2" class="result" style="display: none;"></div>
+                </li>
+                <li class="row_score clearfix" index="4">
+                    <label for="textfield" class="tt_score">签证评分</label>
+                    <img src="/images/icon/ic_red_f.png" class="face">
+                    <div id="star_3" style="float: right; margin-right: 160px; cursor: pointer; width: 140px;">
+                        <img src="/images/icon/ic_gray.png" alt="1" title="1">&nbsp;<img src="/images/icon/ic_gray.png" alt="2" title="2">&nbsp;<img src="/images/icon/ic_gray.png" alt="3" title="3">&nbsp;<img src="/images/icon/ic_gray.png" alt="4" title="4">&nbsp;<img src="/images/icon/ic_gray.png" alt="5" title="5"><input type="hidden" name="score">
+                    </div>
+                    <div id="result_3" class="result" style="display: none;"></div>
+                </li>
+                <li class="row_score clearfix" index="5">
+                    <label for="textfield" class="tt_score">预约评分</label>
+                    <img src="/images/icon/ic_red_f.png" class="face">
+                    <div id="star_4" style="float: right; margin-right: 160px; cursor: pointer; width: 140px;">
+                        <img src="/images/icon/ic_gray.png" alt="1" title="1">&nbsp;<img src="/images/icon/ic_gray.png" alt="2" title="2">&nbsp;<img src="/images/icon/ic_gray.png" alt="3" title="3">&nbsp;<img src="/images/icon/ic_gray.png" alt="4" title="4">&nbsp;<img src="/images/icon/ic_gray.png" alt="5" title="5"><input type="hidden" name="score">
+                    </div>
+                    <div id="result_4" class="result" style="display: none;"></div>
+                </li>
+                <li class="row_score clearfix" index="6">
+                    <label for="textfield" class="tt_score">预订评分</label>
+                    <img src="/images/icon/ic_red_f.png" class="face">
+                    <div id="star_5" style="float: right; margin-right: 160px; cursor: pointer; width: 140px;">
+                        <img src="/images/icon/ic_gray.png" alt="1" title="1">&nbsp;<img src="/images/icon/ic_gray.png" alt="2" title="2">&nbsp;<img src="/images/icon/ic_gray.png" alt="3" title="3">&nbsp;<img src="/images/icon/ic_gray.png" alt="4" title="4">&nbsp;<img src="/images/icon/ic_gray.png" alt="5" title="5"><input type="hidden" name="score">
+                    </div>
+                    <div id="result_5" class="result" style="display: none;"></div>
+                </li>
+                <li class="row_score clearfix" index="7">
+                    <label for="textfield" class="tt_score">接机评分</label>
+                    <img src="/images/icon/ic_red_f.png" class="face">
+                    <div id="star_6" style="float: right; margin-right: 160px; cursor: pointer; width: 140px;">
+                        <img src="/images/icon/ic_gray.png" alt="1" title="1">&nbsp;<img src="/images/icon/ic_gray.png" alt="2" title="2">&nbsp;<img src="/images/icon/ic_gray.png" alt="3" title="3">&nbsp;<img src="/images/icon/ic_gray.png" alt="4" title="4">&nbsp;<img src="/images/icon/ic_gray.png" alt="5" title="5"><input type="hidden" name="score">
+                    </div>
+                    <div id="result_6" class="result" style="display: none;"></div>
+                </li>
+                <li class="row_score clearfix" index="8">
+                    <label for="textfield" class="tt_score">送机评分</label>
+                    <img src="/images/icon/ic_red_f.png" class="face">
+                    <div id="star_7" style="float: right; margin-right: 160px; cursor: pointer; width: 140px;">
+                        <img src="/images/icon/ic_gray.png" alt="1" title="1">&nbsp;<img src="/images/icon/ic_gray.png" alt="2" title="2">&nbsp;<img src="/images/icon/ic_gray.png" alt="3" title="3">&nbsp;<img src="/images/icon/ic_gray.png" alt="4" title="4">&nbsp;<img src="/images/icon/ic_gray.png" alt="5" title="5"><input type="hidden" name="score">
+                    </div>
+                    <div id="result_7" class="result" style="display: none;"></div>
+                </li>
+                <li class="row_score clearfix" index="9">
+                    <label for="textfield" class="tt_score">酒店评分</label>
+                    <img src="/images/icon/ic_red_f.png" class="face">
+                    <div id="star_8" style="float: right; margin-right: 160px; cursor: pointer; width: 140px;">
+                        <img src="/images/icon/ic_gray.png" alt="1" title="1">&nbsp;<img src="/images/icon/ic_gray.png" alt="2" title="2">&nbsp;<img src="/images/icon/ic_gray.png" alt="3" title="3">&nbsp;<img src="/images/icon/ic_gray.png" alt="4" title="4">&nbsp;<img src="/images/icon/ic_gray.png" alt="5" title="5"><input type="hidden" name="score">
+                    </div>
+                    <div id="result_8" class="result" style="display: none;"></div>
+                </li>
+
+            </ul>
+            <div class="div_sub" style="text-align: center; width: 500px;">
+                <button type="button" class="btn_blue" style="width: 120px;" id="btn_score">确认并提交</button>
+            </div>
+        </form>
+    </div>
+</div>
+<script src="~/js/jquery.raty.js"></script>
+<script src="~/js/template.js"></script>
+<script>
+    function rat(star, result, m) {
+        star = '#' + star;
+        result = '#' + result;
+        $(result).hide();//将结果DIV隐藏
+
+        $(star).raty({
+            hints: ['1', '2', '3', '4', '5'],
+            path: "/images/icon",
+            starOff: 'ic_gray.png',
+            starOn: 'ic_yellow.png',
+            number: 5,
+            size: 24,
+            start: 40,
+            showHalf: true,
+            target: result,
+            targetKeep: true,//targetKeep 属性设置为true，用户的选择值才会被保持在目标DIV中，否则只是鼠标悬停时有值，而鼠标离开后这个值就会消失
+            click: function (score, evt) {
+                //第一种方式：直接取值
+                //alert('你的评分是' + score * m + '分');
+            }, mouseover: function (score, evt) {
+                if ($.trim($(result).text()) == '') {
+                    ///鼠标滑过未点击
+                    $(this).parent().find('.face').attr('src', '/images/icon/ic_red_f.png');
+                } else if (score * m <= 3) {
+                    $(this).parent().find('.face').attr('src', '/images/icon/ic_red_f.png');
+                } else if (score * m > 3 && score * m < 5) {
+                    $(this).parent().find('.face').attr('src', '/images/icon/ic_yellow_f.png');
+                } else if (score * m == 5) {
+                    $(this).parent().find('.face').attr('src', '/images/icon/ic_green_f.png');
+                }
+                // alert('你的评分是' + score * m + '分');
+            }
+        });
+    }
+
+
+    rat('star_1', 'result_1', 1);
+    rat('star_2', 'result_2', 1);
+    rat('star_3', 'result_3', 1);
+    rat('star_4', 'result_4', 1);
+    rat('star_5', 'result_5', 1);
+    rat('star_6', 'result_6', 1);
+    rat('star_7', 'result_7', 1);
+    rat('star_8', 'result_8', 1);
+
+    $(function () {
+        $('#j-score .cancelSbtn').click(function () {
+            $('#j-score').fadeOut(100, function () {
+                $('#j-mask').hide();
+            });
+        });
+        $('#btn_score').click(function () {
+            var mess = '';
+            var scoresData = {};
+            scoresData.Scores = [];
+            scoresData.isAll = true;
+            var scoreResult = $('#ul_score').find('li:visible').find('.result');
+            if (scoreResult.length == 0) {
+                logger.error("当前无法评分");
+                return;
+            }
+            $.each(scoreResult, function (i, n) {
+                if ($.trim($(this).text()) == '') {
+                    mess = '第' + (i + 1) + '个评分未选择!';
+
+
+                    scoresData.isAll = false;
+                    return false;
+                }
+                var obj = {};
+                obj.ScoreCount = $.trim($(this).text());
+                obj.Type = $(this).parent('li').attr('index');
+                scoresData["Scores[" + i + "].Type"] = obj.Type;
+                scoresData["Scores[" + i + "].ScoreCount"] = obj.ScoreCount;
+                //mess += '第' + (i + 1) + '个评分为：' + $.trim($(this).text()) + '\n';
+            });
+            if (!scoresData.isAll) {
+                logger.info(mess);
+                return;
+            }
+            var options = {
+                data: scoresData,
+                submitsuccess: function () {
+
+                    $('#j-score .cancelSbtn').trigger('click');
+                }
+            }
+            $.extend(formOptions, options);
+            $("#scoreForm").ajaxSubmit(formOptions);
+
+        });
+        //评分显隐
+        $('#j-score #ul_score>li[index]').hide();
+        if (typeof indexs != 'undefined') {
+
+            indexs.forEach(function (index) {
+                $('#j-score #ul_score>li[index=' + index + ']').show();
+            });
+        }
+    });
+
+</script>

@@ -11,11 +11,12 @@
     <link href="~/bower_components/toastr/build/toastr.min.css" rel="stylesheet" />
     <style type="text/css"></style>
     <script src="~/bower_components/jquery/dist/jquery.min.js"></script>
-    <script src="~/bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="http://cdn.bootcss.com/jquery.form/3.20/jquery.form.min.js"></script>
     <script src="~/bower_components/toastr/build/toastr.min.js"></script>
     <script src="~/bower_components/moment/min/moment.min.js"></script>
     <script src="~/bower_components/moment/locale/zh-cn.js"></script>
     <script src="~/bower_components/underscore/underscore-min.js"></script>
+    <script src="~/bower_components/layer/layer.js"></script>
     <script src="~/js/common.js"></script>
     <script src="~/js/index.js"></script>
     <!--表单验证-->
@@ -29,22 +30,41 @@
     <script type="text/javascript">DD_belatedPNG.fix('*');</script>
     <![endif]-->
     <title>首页</title>
+
 </head>
 <body>
     <!--***header***-->
     <div class="htop">
-        <img src="/images/tel_400.png">
+        <div class="userInfo">
+            <dl class="exchr">
+                <dd class="cn">
+                    <img src="/images/user.png">
+                    <label>@ViewData["UserName"]</label>
+                    <ul class="exchrSubindex" style="left: 1159.44px; display: none;">
+                        <li id="userinfo">
+                            <img src="/images/icon/ic_user_info.png">客户信息</li>
+                        <li id="rempwdbtn">
+                            <img src="/images/icon/ic_password.png">修改密码</li>
+                        <li>
+                            <img src="/images/icon/ic_exit.png">退出</li>
+                    </ul>
+                </dd>
+            </dl>
+        </div>
+        <div class="tel400">
+            <img src="/images/tel_400.png">
+        </div>
     </div>
     <div class="hNav2">
-        <div class="userMenu">
-            <a href="javascipt:void(0)" class="active">首页</a><span>/</span>
-            <a href="javascipt:void(0)">查看服务</a><span>/</span>
-            <a href="/Home/Main?state=5">查看预约</a><span>/</span>
-            <a href="javascipt:void(0)">机票酒店</a><span>/</span>
-            <a href="javascipt:void(0)">查看签证</a><span>/</span>
-            <a href="javascipt:void(0)">接送服务</a><span>/</span>
-            <a href="javascipt:void(0)">海外服务</a><span>/</span>
-            <a href="/Home/Main?state=13">联系方式</a>
+        <div class="userrowMenu">
+            <a href="javascipt:void(0)" class="activ" index="0">首页</a><span>/</span>
+            <a href="/Home/Main?state=1" index="1">查看服务</a><span>/</span>
+            <a href="/Home/Main?state=5" index="5">查看预约</a><span>/</span>
+            <a href="/Home/Main?state=6" index="6">机票酒店</a><span>/</span>
+            <a href="/Home/Main?state=4" index="4">查看签证</a><span>/</span>
+            <a href="/Home/Main?state=7" index="7">接送服务</a><span>/</span>
+            <a href="/Home/Main?state=2" index="2">海外服务</a><span>/</span>
+            <a href="/Home/Main?state=13" index="13">联系方式</a>
         </div>
         <a class="wecTips">
             <img src="/images/logo_c.png">
@@ -125,10 +145,17 @@
         </div>
     </div>
     <!--***footer***-->
-
+    <div class="m-mask" id="j-mask" style="display: none;"></div>
+    <!--客户信息-->
+    <div html="/home/AccountInfo"></div>
+    <!--悬浮客户评分-->
+    <div class="scorebtn">
+    </div>
+    <div html="/Service/Scores">
+    </div>
     <script>
         var menuState = '@Model.Status';
-
+        var indexs = eval('@Html.Raw(Json.Encode(Model.SiteMaps))');
     </script>
 </body>
 </html>

@@ -125,9 +125,12 @@ var logger = {
 var MenuControll = function () {
     //左导航和Top控制
     if (typeof indexs != 'undefined') {
+        $('.hNav2>.userrowMenu a[index]').hide().next('span').hide();
         indexs.forEach(function (index) {
             $('.usrBd .usrSubMenu li a[index=' + index + ']').parent().show();
+            $('.hNav2>.userrowMenu a[index=' + index + ']').show().next('span').show();
         });
+
     }
     if (typeof menuState == 'undefined') {
         return;
@@ -161,15 +164,60 @@ var MenuControll = function () {
 common.getTemp(common.GetRequest());
 logger.init();
 
-//弹层JS
-var score = function () {
+
+function exchrHover() {
+
+    $('.exchr .cn').hover(function () {
+        var left = $(this).offset().left;
+        $(this).find('.exchrSub,.exchrSubindex').css({ 'left': left });
+        $(this).find('.exchrSub,.exchrSubindex').fadeIn();
+    }, function () {
+        $(this).find('.exchrSub,.exchrSubindex').fadeOut();
+    });
+    //修改密码
+    $('#rempwdbtn').click(ChangePassWord);
+
     $('.scorebtn').click(function () {
         $('#j-mask').fadeIn(100, function () {
             $('#j-score').show(0);
         });
     });
+
+
+
+
+    $('.a_history').click(function () {
+        $('#j-mask').fadeIn(100, function () {
+            $('#j-history').show(0);
+        });
+    });
+    $('#j-history .cancelHbtn').click(function () {
+        $('#j-history').fadeOut(100, function () {
+            $('#j-mask').hide();
+        });
+    });
+
+    $('#userinfo').click(function () {
+        $('#j-mask').fadeIn(100, function () {
+            $('#j-user').show(0);
+        });
+    });
+
+}
+//修改密码
+var ChangePassWord = function () {
+    layer.open({
+        type: 2,
+        title: '忘记密码',
+        shadeClose: false,
+        shade: 0.8,
+        area: ['500px', '508px'],
+        content: '/Account/ChangePassword' //iframe的url
+    });
 }
 $(function () {
+    exchrHover();
+    $('div[html]').each(function (index, item) { $(item).load($(item).attr('html')) });
 
-    score();
 })
+
