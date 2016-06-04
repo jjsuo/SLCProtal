@@ -21,9 +21,14 @@ namespace SLCProtal.Controllers
         //private string _accountId = "";
 
        
-        public ActionResult ChangePassword(string phone)
+        public ActionResult ChangePassword()
         {
-            ViewData["Phone"] = phone;
+            if (SessionManage.AccountInfo != null)
+
+                ViewData["Phone"] = SessionManage.AccountInfo.Phone;
+            else
+                ViewData["Phone"] = "";
+          
             return View();
         }
          [HttpPost]
