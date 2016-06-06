@@ -1,5 +1,6 @@
 ﻿@model SLCProtal.Models.Other.SuggestionModel
 
+
 <div class="flighMn">
     投诉建议
 </div>
@@ -38,7 +39,14 @@
     }
 
     $(function () {
-       
+        var options = {
+            submitsuccess: function () {
+                $('.sugg_sel').val(1);
+                return true;
+
+            }
+        }
+        $.extend(formOptions, options);
         $("#sugg_content").ajaxForm(formOptions);
 
     });

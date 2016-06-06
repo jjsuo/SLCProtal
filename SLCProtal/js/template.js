@@ -21,15 +21,19 @@ var formOptions = {
             logger.success("提交成功");
             arguments[3].clearForm();
             if (typeof formOptions.submitsuccess === 'function') {
-                formOptions.submitsuccess(data);
-                formOptions.submitsuccess = undefined;
+                if (formOptions.submitsuccess(data) != true) {
+                    formOptions.submitsuccess = undefined;
+                }
+
             }
         }
         else {
             logger.error(data.result);
             if (typeof formOptions.submiterror === 'function') {
-                formOptions.submiterror(data);
-                formOptions.submiterror = undefined;
+                if (formOptions.submiterror(data) != true) {
+                    formOptions.submiterror = undefined;
+                }
+
             }
         }
     },
