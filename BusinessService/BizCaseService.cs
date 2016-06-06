@@ -126,6 +126,18 @@ namespace BusinessService
             return message;
         }
 
+        public List<Score> GetScores(string bizCaseId)
+        {
+            ConvertClass<Score> convertClass = new ConvertClass<Score>();
+            List<Score> scores = null;
+
+
+            DataSet st = SqlHelper.ExecuteDataset(SqlConnect.CRM_ADDON_ConnectString, CommandType.StoredProcedure,
+                "usp_protal_GetScores", new SqlParameter("@bizCaseId", bizCaseId));
+            scores = convertClass.ToList(st.Tables[0]);
+
+            return scores;
+        }
 
         public BizCaseDetail GetBizCaseDetail(string bizCaseId)
         {

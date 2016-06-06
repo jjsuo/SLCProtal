@@ -1,4 +1,4 @@
-﻿@model dynamic
+﻿@model SLCProtal.Models.Service.ScoreModel
 
 <div class="m-calc" id="j-score" style="display: none;">
     <div class="mt"><span>用户评分</span><a href="javascript:void(0);" class="clsBtn cancelSbtn">X</a></div>
@@ -18,58 +18,58 @@
                 <li class="row_score clearfix" index="3">
                     <label for="textfield" class="tt_score">翻译评分</label>
                     <img src="/images/icon/ic_red_f.png" class="face">
-                    <div id="star_2" style="float: right; margin-right: 160px; cursor: pointer; width: 140px;">
-                        <img src="/images/icon/ic_gray.png" alt="1" title="1">&nbsp;<img src="/images/icon/ic_gray.png" alt="2" title="2">&nbsp;<img src="/images/icon/ic_gray.png" alt="3" title="3">&nbsp;<img src="/images/icon/ic_gray.png" alt="4" title="4">&nbsp;<img src="/images/icon/ic_gray.png" alt="5" title="5"><input type="hidden" name="score">
-                    </div>
-                    <div id="result_2" class="result" style="display: none;"></div>
-                </li>
-                <li class="row_score clearfix" index="4">
-                    <label for="textfield" class="tt_score">签证评分</label>
-                    <img src="/images/icon/ic_red_f.png" class="face">
                     <div id="star_3" style="float: right; margin-right: 160px; cursor: pointer; width: 140px;">
                         <img src="/images/icon/ic_gray.png" alt="1" title="1">&nbsp;<img src="/images/icon/ic_gray.png" alt="2" title="2">&nbsp;<img src="/images/icon/ic_gray.png" alt="3" title="3">&nbsp;<img src="/images/icon/ic_gray.png" alt="4" title="4">&nbsp;<img src="/images/icon/ic_gray.png" alt="5" title="5"><input type="hidden" name="score">
                     </div>
                     <div id="result_3" class="result" style="display: none;"></div>
                 </li>
-                <li class="row_score clearfix" index="5">
-                    <label for="textfield" class="tt_score">预约评分</label>
+                <li class="row_score clearfix" index="4">
+                    <label for="textfield" class="tt_score">签证评分</label>
                     <img src="/images/icon/ic_red_f.png" class="face">
                     <div id="star_4" style="float: right; margin-right: 160px; cursor: pointer; width: 140px;">
                         <img src="/images/icon/ic_gray.png" alt="1" title="1">&nbsp;<img src="/images/icon/ic_gray.png" alt="2" title="2">&nbsp;<img src="/images/icon/ic_gray.png" alt="3" title="3">&nbsp;<img src="/images/icon/ic_gray.png" alt="4" title="4">&nbsp;<img src="/images/icon/ic_gray.png" alt="5" title="5"><input type="hidden" name="score">
                     </div>
                     <div id="result_4" class="result" style="display: none;"></div>
                 </li>
-                <li class="row_score clearfix" index="6">
-                    <label for="textfield" class="tt_score">预订评分</label>
+                <li class="row_score clearfix" index="5">
+                    <label for="textfield" class="tt_score">预约评分</label>
                     <img src="/images/icon/ic_red_f.png" class="face">
                     <div id="star_5" style="float: right; margin-right: 160px; cursor: pointer; width: 140px;">
                         <img src="/images/icon/ic_gray.png" alt="1" title="1">&nbsp;<img src="/images/icon/ic_gray.png" alt="2" title="2">&nbsp;<img src="/images/icon/ic_gray.png" alt="3" title="3">&nbsp;<img src="/images/icon/ic_gray.png" alt="4" title="4">&nbsp;<img src="/images/icon/ic_gray.png" alt="5" title="5"><input type="hidden" name="score">
                     </div>
                     <div id="result_5" class="result" style="display: none;"></div>
                 </li>
-                <li class="row_score clearfix" index="7">
-                    <label for="textfield" class="tt_score">接机评分</label>
+                <li class="row_score clearfix" index="6">
+                    <label for="textfield" class="tt_score">预订评分</label>
                     <img src="/images/icon/ic_red_f.png" class="face">
                     <div id="star_6" style="float: right; margin-right: 160px; cursor: pointer; width: 140px;">
                         <img src="/images/icon/ic_gray.png" alt="1" title="1">&nbsp;<img src="/images/icon/ic_gray.png" alt="2" title="2">&nbsp;<img src="/images/icon/ic_gray.png" alt="3" title="3">&nbsp;<img src="/images/icon/ic_gray.png" alt="4" title="4">&nbsp;<img src="/images/icon/ic_gray.png" alt="5" title="5"><input type="hidden" name="score">
                     </div>
                     <div id="result_6" class="result" style="display: none;"></div>
                 </li>
-                <li class="row_score clearfix" index="8">
-                    <label for="textfield" class="tt_score">送机评分</label>
+                <li class="row_score clearfix" index="7">
+                    <label for="textfield" class="tt_score">接机评分</label>
                     <img src="/images/icon/ic_red_f.png" class="face">
                     <div id="star_7" style="float: right; margin-right: 160px; cursor: pointer; width: 140px;">
                         <img src="/images/icon/ic_gray.png" alt="1" title="1">&nbsp;<img src="/images/icon/ic_gray.png" alt="2" title="2">&nbsp;<img src="/images/icon/ic_gray.png" alt="3" title="3">&nbsp;<img src="/images/icon/ic_gray.png" alt="4" title="4">&nbsp;<img src="/images/icon/ic_gray.png" alt="5" title="5"><input type="hidden" name="score">
                     </div>
                     <div id="result_7" class="result" style="display: none;"></div>
                 </li>
-                <li class="row_score clearfix" index="9">
-                    <label for="textfield" class="tt_score">酒店评分</label>
+                <li class="row_score clearfix" index="8">
+                    <label for="textfield" class="tt_score">送机评分</label>
                     <img src="/images/icon/ic_red_f.png" class="face">
                     <div id="star_8" style="float: right; margin-right: 160px; cursor: pointer; width: 140px;">
                         <img src="/images/icon/ic_gray.png" alt="1" title="1">&nbsp;<img src="/images/icon/ic_gray.png" alt="2" title="2">&nbsp;<img src="/images/icon/ic_gray.png" alt="3" title="3">&nbsp;<img src="/images/icon/ic_gray.png" alt="4" title="4">&nbsp;<img src="/images/icon/ic_gray.png" alt="5" title="5"><input type="hidden" name="score">
                     </div>
                     <div id="result_8" class="result" style="display: none;"></div>
+                </li>
+                <li class="row_score clearfix" index="9">
+                    <label for="textfield" class="tt_score">酒店评分</label>
+                    <img src="/images/icon/ic_red_f.png" class="face">
+                    <div id="star_9" style="float: right; margin-right: 160px; cursor: pointer; width: 140px;">
+                        <img src="/images/icon/ic_gray.png" alt="1" title="1">&nbsp;<img src="/images/icon/ic_gray.png" alt="2" title="2">&nbsp;<img src="/images/icon/ic_gray.png" alt="3" title="3">&nbsp;<img src="/images/icon/ic_gray.png" alt="4" title="4">&nbsp;<img src="/images/icon/ic_gray.png" alt="5" title="5"><input type="hidden" name="score">
+                    </div>
+                    <div id="result_9" class="result" style="display: none;"></div>
                 </li>
 
             </ul>
@@ -82,6 +82,8 @@
 <script src="~/js/jquery.raty.js"></script>
 <script src="~/js/template.js"></script>
 <script>
+    var scores = eval('@Html.Raw(Json.Encode(Model.Scores))');
+   
     function rat(star, result, m) {
         star = '#' + star;
         result = '#' + result;
@@ -92,6 +94,7 @@
             path: "/images/icon",
             starOff: 'ic_gray.png',
             starOn: 'ic_yellow.png',
+            score: _.findWhere(scores, { Type: parseInt(star.split('_')[1]) }).ScoreCount,
             number: 5,
             size: 24,
             start: 40,
@@ -118,14 +121,16 @@
     }
 
 
+   
+
     rat('star_1', 'result_1', 1);
-    rat('star_2', 'result_2', 1);
     rat('star_3', 'result_3', 1);
     rat('star_4', 'result_4', 1);
     rat('star_5', 'result_5', 1);
     rat('star_6', 'result_6', 1);
     rat('star_7', 'result_7', 1);
     rat('star_8', 'result_8', 1);
+    rat('star_9', 'result_9', 1);
 
     $(function () {
         $('#j-score .cancelSbtn').click(function () {
@@ -174,13 +179,13 @@
 
         });
         //评分显隐
-        $('#j-score #ul_score>li[index]').hide();
-        if (typeof indexs != 'undefined') {
+        //$('#j-score #ul_score>li[index]').hide();
+        //if (typeof indexs != 'undefined') {
 
-            indexs.forEach(function (index) {
-                $('#j-score #ul_score>li[index=' + index + ']').show();
-            });
-        }
+        //    indexs.forEach(function (index) {
+        //        $('#j-score #ul_score>li[index=' + index + ']').show();
+        //    });
+        //}
     });
 
 </script>
