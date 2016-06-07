@@ -137,7 +137,10 @@ namespace SLCProtal.Controllers
 
         public ActionResult Scores()
         {
-            return View();
+            ScoreModel scoreModel=new ScoreModel();
+            BizCaseService bizCaseService=new BizCaseService();
+            scoreModel.Scores = bizCaseService.GetScores(SessionManage.BizCaseInfo.BizCaseId);
+            return View(scoreModel);
         }
 
        // public 

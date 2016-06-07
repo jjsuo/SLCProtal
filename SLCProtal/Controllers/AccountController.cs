@@ -31,8 +31,9 @@ namespace SLCProtal.Controllers
           
             return View();
         }
-         [HttpPost]
+         
         //修改密码和忘记密码的区别在于 phone参数是否为空
+        [HttpPost]
         public JsonResult ChangePassword(string code,string password)
          {
             if(Session["code"]==null||SessionManage.AccountInfo==null)
