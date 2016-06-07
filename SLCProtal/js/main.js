@@ -1,5 +1,8 @@
 ﻿
 $(function () {
+    $.ajaxSetup({
+        cache: false //关闭AJAX相应的缓存 
+    });
     HistoryInit();
     MenuControll();
 });
