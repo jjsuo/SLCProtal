@@ -163,6 +163,11 @@ namespace SLCProtal.Controllers
                 return View(oLoginModel);
             }
         }
-        
+
+
+        public ActionResult Redirect()
+        {
+            return View();
+        }
     }
 }

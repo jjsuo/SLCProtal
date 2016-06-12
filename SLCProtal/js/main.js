@@ -17,7 +17,12 @@ var HistoryInit = function () {
         var url = indexDiv.attr('url');
 
         if (url) {
-            $('.usrBd .usrMn').load('/' + url);
+            $('.usrBd .usrMn').load('/' + url, function (response, status, xhr) { if (xhr.status === 401) {
+
+                    window.location.href = '/';
+
+                } }
+ );
         }
         else {
             $('.usrBd .usrMn').html('');

@@ -63,5 +63,7 @@ namespace SLCProtal.Controllers
           
            return View(new SuggestionModel());
        }
+
+      
     }
 }

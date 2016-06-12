@@ -1102,6 +1102,7 @@
     <Content Include="Views\Service\ServiceInfo.cshtml" />
     <Content Include="Views\Service\Translation.cshtml" />
     <Content Include="Views\Service\Visa.cshtml" />
+    <Content Include="Views\Account\Redirect.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

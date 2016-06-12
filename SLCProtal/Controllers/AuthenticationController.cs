@@ -14,25 +14,47 @@ namespace SLCProtal.Controllers
 
         protected override void OnActionExecuting(ActionExecutingContext filterContext)
         {
-           
+
             if (!filterContext.HttpContext.User.Identity.IsAuthenticated)
             {
-                var applicationPath = filterContext.HttpContext.Request.ApplicationPath;
-                var rawUrl = filterContext.HttpContext.Request.RawUrl;
-                var redirectUrl = rawUrl;
-                if (rawUrl.StartsWith(applicationPath))
+                //var controllerDescriptor = (ControllerDescriptor)method.Invoke(this.ActionInvoker, new object[] { this.ControllerContext }); ;
+                //var actionDescriptor = controllerDescriptor.FindAction(this.ControllerContext, actionName);
+                //bool isDataActionResult = false;
+                //if (actionDescriptor != null)
+                //{
+                //    isDataActionResult = actionDescriptor.IsDefined(typeof(ActionTypeAttribute), false);
+                //}
+
+
+            
+                if (filterContext.HttpContext.Request.IsAjaxRequest())
                 {
-                    redirectUrl = rawUrl.Substring(applicationPath.Length);
-                    if (!redirectUrl.StartsWith("/"))
-                    {
-                        redirectUrl = "/" + redirectUrl;
-                    }
+                    filterContext.HttpContext.Response.StatusCode = 401;
+                    filterContext.Result = new RedirectResult("/account/redirect");
                 }
 
-                string loginUrl = FormsAuthentication.LoginUrl + string.Format("?RedirectUrl={0}", redirectUrl);
-                filterContext.Result = new RedirectResult(loginUrl);
-            }
+                else
+                {
+                    var applicationPath = filterContext.HttpContext.Request.ApplicationPath;
+                    var rawUrl = filterContext.HttpContext.Request.RawUrl;
+                    var redirectUrl = rawUrl;
+                    if (rawUrl.StartsWith(applicationPath))
+                    {
+                        redirectUrl = rawUrl.Substring(applicationPath.Length);
+                        if (!redirectUrl.StartsWith("/"))
+                        {
+                            redirectUrl = "/" + redirectUrl;
+                        }
+                    }
 
+                    string loginUrl = FormsAuthentication.LoginUrl + string.Format("?RedirectUrl={0}", redirectUrl);
+                    filterContext.Result = new RedirectResult(loginUrl);
+                }
+               
+
+            }
+            
+          
             base.OnActionExecuting(filterContext);
         }
 
