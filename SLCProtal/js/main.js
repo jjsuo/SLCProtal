@@ -17,7 +17,8 @@ var HistoryInit = function () {
         var url = indexDiv.attr('url');
 
         if (url) {
-            $('.usrBd .usrMn').load('/' + url, function (response, status, xhr) { if (xhr.status === 401) {
+            $('.usrBd .usrMn').load('/' + url, function (response, status, xhr) {
+                if (xhr.status === 405) {
 
                     window.location.href = '/';
 

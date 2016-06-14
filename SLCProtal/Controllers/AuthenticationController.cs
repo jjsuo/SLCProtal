@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
+using SLCProtal.Common;
 
 namespace SLCProtal.Controllers
 {
@@ -29,8 +30,11 @@ namespace SLCProtal.Controllers
             
                 if (filterContext.HttpContext.Request.IsAjaxRequest())
                 {
-                    filterContext.HttpContext.Response.StatusCode = 401;
-                    filterContext.Result = new RedirectResult("/account/redirect");
+                    //filterContext.HttpContext.Response.StatusCode = 401;
+                    //filterContext.HttpContext.Response.StatusCode = 401;
+
+                    //filterContext.Result =new EmptyResult();
+                    filterContext.Result = new UnAuthenticationResult();  //new RedirectResult("/account/redirect");
                 }
 
                 else

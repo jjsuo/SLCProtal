@@ -113,6 +113,7 @@
   <ItemGroup>
     <Compile Include="App_Start\CheckSession.cs" />
     <Compile Include="Common\ActionTypeAttribute.cs" />
+    <Compile Include="Common\ExtendActionResult.cs" />
     <Compile Include="Common\SessionManage.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AuthenticationController.cs" />
